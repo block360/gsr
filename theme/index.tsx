@@ -61,9 +61,7 @@ export const gsrBaseTheme = {
     sliderTrackFill: "#9DA3DA",
   },
   fonts: {
-    body: '"Open Sans","Inter", "Helvetica Neue", sans-serif',
-    heading: '"Open Sans", "Helvetica Neue", sans-serif',
-    monospace: "monospace",
+    body: "sans-serif",
   },
   //           0   1   2   3   4   5   6   7   8   9  10
   fontSizes: [10, 12, 14, 16, 18, 20, 24, 32, 52, 64, 96],
