@@ -1,15 +1,23 @@
 import "../styles/globals.css";
+import { CacheProvider, Global } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "theme-ui";
 import { theme } from "../theme";
-import { openSansFont } from "../helpers";
+import { globalStyles } from "../helpers";
 
-export default function App({ Component, pageProps }: AppProps) {
+const key = "gsr-cache";
+const cache = createCache({ key });
+
+function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${openSansFont.className}`}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <CacheProvider value={cache}>
+        <Global styles={globalStyles} />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </div>
+      </CacheProvider>
+    </ThemeProvider>
   );
 }
+export default appWithTranslation(App);

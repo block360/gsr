@@ -1,16 +1,51 @@
-import localFont from "@next/font/local";
-export const openSansFont = localFont({
-  src: [
-    { path: "../fonts/OpenSans/OpenSans-Light.ttf", weight: "300" },
-    { path: "../fonts/OpenSans/OpenSans-Regular.ttf", weight: "400" },
-    { path: "../fonts/OpenSans/OpenSans-Medium.ttf", weight: "500" },
-    { path: "../fonts/OpenSans/OpenSans-SemiBold.ttf", weight: "600" },
-    { path: "../fonts/OpenSans/OpenSans-Bold.ttf", weight: "700" },
-  ],
-});
-export const gsuFont = localFont({
-  src: [
-    { path: "../fonts/GSUFont/GSU-Regular.ttf", weight: "400" },
-    { path: "../fonts/GSUFont/GSU-Bold.ttf", weight: "700" },
-  ],
-});
+export const globalStyles = `
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../static/fonts/OpenSans/OpenSans-Regularttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../static/fonts/OpenSans/OpenSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../static/fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../static/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../static/fonts/OpenSans/OpenSans-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "GSU font";
+    src: url("../static/fonts/GSUFont/GSU-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "GSU font";
+    src: url("../static/fonts/GSUFont/GSU-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+`;
