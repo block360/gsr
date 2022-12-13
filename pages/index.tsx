@@ -20,6 +20,14 @@ export default function Home() {
       <main>
         <h1>${t("test")} &#x24;</h1>
         <p>inprogress $</p>
+        <button
+          type="button"
+          onClick={() => {
+            throw new Error("Sentry Frontend Error");
+          }}
+        >
+          Throw error
+        </button>
       </main>
       <footer>GSU SAVE RATE $</footer>
     </div>
