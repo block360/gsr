@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 export function InjectTokenIconsDefs() {
   return (
-    <svg width="0" height="0" style={{ display: 'block' }}>
+    <svg width="0" height="0" style={{ display: "block" }}>
       <defs>
         <linearGradient
           id="zerox_paint0_linear"
@@ -341,8 +341,15 @@ export function InjectTokenIconsDefs() {
           />
           <feOffset />
           <feGaussianBlur stdDeviation="2" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2810_33550" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_2810_33550"
+          />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -374,7 +381,7 @@ export function InjectTokenIconsDefs() {
         </linearGradient>
       </defs>
     </svg>
-  )
+  );
 }
 export const tokenIcons = {
   zeroX_circle_color: {
@@ -392,7 +399,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   aave_circle_color: {
     path: (
@@ -407,7 +414,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   bal_circle: {
     path: (
@@ -426,7 +433,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   bal_circle_color: {
     path: (
@@ -445,7 +452,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   btc_circle_color: {
     path: (
@@ -460,7 +467,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   btc_circle_mono: {
     path: (
@@ -475,7 +482,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   compound_circle_color: {
     path: (
@@ -492,7 +499,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   ether_circle_color: {
     path: (
@@ -503,11 +510,17 @@ export const tokenIcons = {
         />
         <path d="M15.9999 8V19.0509L10.6667 16.1484L15.9999 8Z" fill="white" />
         <path d="M15.9999 8L21.3332 16.1484L15.9999 19.0509V8Z" fill="white" />
-        <path d="M15.9998 19.9811V23.9999L10.6666 17.08L15.9998 19.9811Z" fill="white" />
-        <path d="M15.9998 23.9999V19.9811L21.3333 17.08L15.9998 23.9999Z" fill="white" />
+        <path
+          d="M15.9998 19.9811V23.9999L10.6666 17.08L15.9998 19.9811Z"
+          fill="white"
+        />
+        <path
+          d="M15.9998 23.9999V19.9811L21.3333 17.08L15.9998 23.9999Z"
+          fill="white"
+        />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   gemini_circle_color: {
     path: (
@@ -522,7 +535,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   knc_circle_color: {
     path: (
@@ -539,7 +552,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   link_circle_color: {
     path: (
@@ -554,7 +567,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   link_circle_mono: {
     path: (
@@ -569,12 +582,17 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   lrc_circle_color: {
     path: (
       <>
-        <circle cx="16" cy="15.9998" r="13.3333" fill="url(#lrc_paint0_linear)" />
+        <circle
+          cx="16"
+          cy="15.9998"
+          r="13.3333"
+          fill="url(#lrc_paint0_linear)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -583,7 +601,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   mana_circle_color: {
     path: (
@@ -644,7 +662,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   mana_circle_mono: {
     path: (
@@ -706,7 +724,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   pax_circle_color: {
     path: (
@@ -758,12 +776,17 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   uni_circle_color: {
     path: (
       <>
-        <circle cx="16" cy="15.9998" r="13.3333" fill="url(#uni_paint0_linear)" />
+        <circle
+          cx="16"
+          cy="15.9998"
+          r="13.3333"
+          fill="url(#uni_paint0_linear)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -772,7 +795,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   uni_circle_mono: {
     path: (
@@ -786,7 +809,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   usdc_circle_color: {
     path: (
@@ -809,19 +832,24 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   usdt_circle_color: {
     path: (
       <>
-        <circle cx="16" cy="15.9998" r="13.3333" fill="url(#usdt_paint0_linear)" />
+        <circle
+          cx="16"
+          cy="15.9998"
+          r="13.3333"
+          fill="url(#usdt_paint0_linear)"
+        />
         <path
           d="M24.0074 16.3046C24.0074 15.2995 21.2727 14.461 17.6385 14.2675L17.6382 12.6662H22.1759V9.3335H9.768V12.6662H14.3053V14.2754C10.7373 14.4821 8.06836 15.3119 8.06836 16.3046C8.06836 17.2974 10.7373 18.1273 14.3053 18.3336V24.0841H17.6382V18.3415C21.2727 18.1484 24.0074 17.3096 24.0074 16.3046ZM16.0378 17.2947C12.1371 17.2947 8.97477 16.6909 8.97477 15.9457C8.97477 15.3148 11.2423 14.7851 14.3053 14.6377V15.0175H14.3057V16.5738C14.8579 16.6048 15.4383 16.621 16.0378 16.621C16.5899 16.621 17.1261 16.607 17.6386 16.5813V14.6319C20.768 14.7702 23.1011 15.3055 23.1011 15.9457C23.101 16.6909 19.9386 17.2947 16.0378 17.2947Z"
           fill="white"
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   wbtc_circle_color: {
     path: (
@@ -849,7 +877,10 @@ export const tokenIcons = {
           width="28"
           height="28"
         >
-          <path d="M2.66663 2.6665H29.3333V29.3332H2.66663V2.6665Z" fill="white" />
+          <path
+            d="M2.66663 2.6665H29.3333V29.3332H2.66663V2.6665Z"
+            fill="white"
+          />
         </mask>
         <g mask="url(#mask0)">
           <path
@@ -862,7 +893,7 @@ export const tokenIcons = {
         </g>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   yfi_circle_color: {
     path: (
@@ -881,7 +912,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   yfi_circle_mono: {
     path: (
@@ -900,7 +931,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   bat_circle_color: {
     path: (
@@ -923,7 +954,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   renbtc_circle_color: {
     path: (
@@ -938,7 +969,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   matic_circle_color: {
     path: (
@@ -953,7 +984,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   matic_circle_mono: {
     path: (
@@ -968,7 +999,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   eth_circle_color: {
     path: (
@@ -981,7 +1012,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   eth_circle_mono: {
     path: (
@@ -994,7 +1025,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   wsteth_circle_color: {
     path: (
@@ -1015,7 +1046,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   mkr_circle_color: {
     path: (
@@ -1044,7 +1075,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 26 26',
+    viewBox: "0 0 26 26",
   },
   steth_circle_color: {
     path: (
@@ -1074,7 +1105,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   usdp_circle_color: {
     path: (
@@ -1139,7 +1170,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   weth_circle_color: {
     path: (
@@ -1212,19 +1243,41 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
 
   // LP Tokens
   univ2_dai_eth_circles_color: {
     path: (
       <>
-        <circle cx="18.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_41838)" />
-        <path d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z" fill="#FEFBFD" />
-        <path d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z" fill="#FEFBFD" />
-        <circle cx="10.499" cy="19" r="8.5" fill="url(#paint1_linear_9009_41838)" />
+        <circle
+          cx="18.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_41838)"
+        />
+        <path
+          d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z"
+          fill="#FEFBFD"
+        />
+        <circle
+          cx="10.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint1_linear_9009_41838)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -1322,7 +1375,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_dai_usdc_circles_color: {
     path: (
@@ -1343,7 +1396,12 @@ export const tokenIcons = {
           d="M20.4125 25.1623C20.2 25.2332 20.0583 25.0915 20.0583 24.879V24.3832C20.0583 24.2415 20.1292 24.0998 20.2708 24.029C22.325 23.2498 23.7417 21.3373 23.7417 19.0707C23.7417 16.804 22.2542 14.8207 20.2708 14.1123C20.1292 14.0415 20.0583 13.8998 20.0583 13.7582V13.2623C20.0583 13.0498 20.2 12.979 20.4125 12.979C22.9625 13.829 24.875 16.2373 24.875 19.0707C24.875 21.904 23.0333 24.3123 20.4125 25.1623Z"
           fill="white"
         />
-        <circle cx="10.499" cy="19" r="8.5" fill="url(#paint1_linear_9009_41891)" />
+        <circle
+          cx="10.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint1_linear_9009_41891)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -1441,16 +1499,33 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_wbtc_eth_circles_color: {
     path: (
       <>
-        <circle cx="19.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_42158)" />
-        <path d="M19.7169 13.769V20.9946L16.2298 19.0968L19.7169 13.769Z" fill="#FEFBFD" />
-        <path d="M19.7169 13.769L23.204 19.0968L19.7169 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M19.7168 21.6028V24.2305L16.2297 19.7059L19.7168 21.6028Z" fill="#FEFBFD" />
-        <path d="M19.7168 24.2305V21.6028L23.2041 19.7059L19.7168 24.2305Z" fill="#FEFBFD" />
+        <circle
+          cx="19.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42158)"
+        />
+        <path
+          d="M19.7169 13.769V20.9946L16.2298 19.0968L19.7169 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7169 13.769L23.204 19.0968L19.7169 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7168 21.6028V24.2305L16.2297 19.7059L19.7168 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7168 24.2305V21.6028L23.2041 19.7059L19.7168 24.2305Z"
+          fill="#FEFBFD"
+        />
         <circle cx="10.499" cy="19" r="8.5" fill="white" />
         <path
           opacity="0.4"
@@ -1465,7 +1540,14 @@ export const tokenIcons = {
           d="M11.9134 17.8111C11.9134 18.7446 10.454 18.631 9.99033 18.631V16.9864C10.454 16.9864 11.9134 16.8402 11.9134 17.8111ZM12.2946 20.3643C12.2946 21.385 10.5458 21.2683 9.98877 21.2683V19.4572C10.5458 19.4588 12.2946 19.2985 12.2946 20.3643ZM13.446 17.4423C13.3527 16.4683 12.5125 16.1416 11.4498 16.042V14.6992H10.6283V16.0155C10.412 16.0155 10.191 16.0155 9.97165 16.0233V14.6992H9.15479V16.0498H8.632H7.48996V16.9289C7.48996 16.9289 8.09677 16.918 8.08743 16.9289C8.31491 16.9038 8.52122 17.0634 8.55421 17.2898V20.9883C8.54425 21.1487 8.40624 21.2705 8.24582 21.2607C8.24489 21.2607 8.24396 21.2607 8.24302 21.2605C8.25392 21.2699 7.64555 21.2605 7.64555 21.2605L7.48218 22.2423H8.55265H9.14079V23.6146H9.96232V22.2626H10.6189V23.6084H11.442V22.2517C12.8299 22.1676 13.7977 21.8253 13.919 20.5261C14.0171 19.4806 13.5254 19.0138 12.7396 18.8255C13.2173 18.5828 13.5176 18.1549 13.446 17.4423Z"
           fill="url(#paint1_linear_9009_42158)"
         />
-        <mask id="mask0_9009_42158" maskUnits="userSpaceOnUse" x="1" y="10" width="18" height="18">
+        <mask
+          id="mask0_9009_42158"
+          maskUnits="userSpaceOnUse"
+          x="1"
+          y="10"
+          width="18"
+          height="18"
+        >
           <path d="M1.99902 10.5H18.999V27.5H1.99902V10.5Z" fill="white" />
         </mask>
         <g mask="url(#mask0_9009_42158)">
@@ -1568,17 +1650,39 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_uni_eth_circles_color: {
     path: (
       <>
-        <circle cx="19.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_42242)" />
-        <path d="M19.7166 13.769V20.9946L16.2295 19.0968L19.7166 13.769Z" fill="#FEFBFD" />
-        <path d="M19.7166 13.769L23.2038 19.0968L19.7166 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M19.7166 21.6028V24.2305L16.2295 19.7059L19.7166 21.6028Z" fill="#FEFBFD" />
-        <path d="M19.7166 24.2305V21.6028L23.2039 19.7059L19.7166 24.2305Z" fill="#FEFBFD" />
-        <circle cx="10.499" cy="19" r="8.5" fill="url(#paint1_linear_9009_42242)" />
+        <circle
+          cx="19.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42242)"
+        />
+        <path
+          d="M19.7166 13.769V20.9946L16.2295 19.0968L19.7166 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7166 13.769L23.2038 19.0968L19.7166 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7166 21.6028V24.2305L16.2295 19.7059L19.7166 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M19.7166 24.2305V21.6028L23.2039 19.7059L19.7166 24.2305Z"
+          fill="#FEFBFD"
+        />
+        <circle
+          cx="10.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint1_linear_9009_42242)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -1676,16 +1780,33 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_usdc_eth_circles_color: {
     path: (
       <>
-        <circle cx="18.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_42330)" />
-        <path d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z" fill="#FEFBFD" />
-        <path d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z" fill="#FEFBFD" />
+        <circle
+          cx="18.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42330)"
+        />
+        <path
+          d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z"
+          fill="#FEFBFD"
+        />
         <path
           d="M10.499 27.5C15.1934 27.5 18.999 23.6944 18.999 19C18.999 14.3056 15.1934 10.5 10.499 10.5C5.8046 10.5 1.99902 14.3056 1.99902 19C1.99902 23.6944 5.8046 27.5 10.499 27.5Z"
           fill="url(#paint1_linear_9009_42330)"
@@ -1793,12 +1914,17 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_wbtc_dai_circles_color: {
     path: (
       <>
-        <circle cx="18.5" cy="19" r="8.5" fill="url(#paint0_linear_9009_42375)" />
+        <circle
+          cx="18.5"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42375)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -1819,7 +1945,14 @@ export const tokenIcons = {
           d="M11.9137 17.8109C11.9137 18.7444 10.4543 18.6308 9.99066 18.6308V16.9863C10.4543 16.9863 11.9137 16.84 11.9137 17.8109ZM12.2948 20.364C12.2948 21.3846 10.5461 21.2679 9.9891 21.2679V19.4569C10.5461 19.4585 12.2948 19.2982 12.2948 20.364ZM13.4462 17.4421C13.3528 16.4682 12.5127 16.1415 11.45 16.0419V14.6992H10.6286V16.0154C10.4123 16.0154 10.1914 16.0154 9.97199 16.0232V14.6992H9.15518V16.0497H8.63242H7.49044V16.9287C7.49044 16.9287 8.09722 16.9178 8.08788 16.9287C8.31535 16.9037 8.52165 17.0633 8.55463 17.2897V20.9879C8.54467 21.1483 8.40667 21.2701 8.24627 21.2603C8.24533 21.2603 8.2444 21.2603 8.24347 21.2601C8.25436 21.2695 7.64603 21.2601 7.64603 21.2601L7.48267 22.2419H8.55308H9.14118V23.6141H9.96266V22.2621H10.6192V23.6079H11.4422V22.2512C12.83 22.1672 13.7978 21.8249 13.9191 20.5258C14.0171 19.4803 13.5255 19.0135 12.7398 18.8253C13.2174 18.5826 13.5177 18.1547 13.4462 17.4421Z"
           fill="url(#paint1_linear_9009_42375)"
         />
-        <mask id="mask0_9009_42375" maskUnits="userSpaceOnUse" x="2" y="10" width="17" height="18">
+        <mask
+          id="mask0_9009_42375"
+          maskUnits="userSpaceOnUse"
+          x="2"
+          y="10"
+          width="17"
+          height="18"
+        >
           <path d="M2 10.5H18.999V27.499H2V10.5Z" fill="white" />
         </mask>
         <g mask="url(#mask0_9009_42375)">
@@ -1922,16 +2055,33 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_link_eth_circles_color: {
     path: (
       <>
-        <circle cx="18.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_42420)" />
-        <path d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z" fill="#FEFBFD" />
-        <path d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z" fill="#FEFBFD" />
+        <circle
+          cx="18.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42420)"
+        />
+        <path
+          d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z"
+          fill="#FEFBFD"
+        />
         <path
           d="M10.5 27.5C15.1944 27.5 19 23.6944 19 19C19 14.3056 15.1944 10.5 10.5 10.5C5.80558 10.5 2 14.3056 2 19C2 23.6944 5.80558 27.5 10.5 27.5Z"
           fill="url(#paint1_linear_9009_42420)"
@@ -2031,16 +2181,33 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_aave_eth_circles_color: {
     path: (
       <>
-        <circle cx="18.499" cy="19" r="8.5" fill="url(#paint0_linear_9009_42455)" />
-        <path d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z" fill="#FEFBFD" />
-        <path d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z" fill="#FEFBFD" />
+        <circle
+          cx="18.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42455)"
+        />
+        <path
+          d="M18.7166 13.769V20.9946L15.2295 19.0968L18.7166 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 13.769L22.2038 19.0968L18.7166 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 21.6028V24.2305L15.2295 19.7059L18.7166 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M18.7166 24.2305V21.6028L22.2039 19.7059L18.7166 24.2305Z"
+          fill="#FEFBFD"
+        />
         <path
           d="M10.499 27.5C15.1934 27.5 18.999 23.6944 18.999 19C18.999 14.3056 15.1934 10.5 10.499 10.5C5.8046 10.5 1.99902 14.3056 1.99902 19C1.99902 23.6944 5.8046 27.5 10.499 27.5Z"
           fill="url(#paint1_linear_9009_42455)"
@@ -2140,28 +2307,58 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   gsu_circle_color: {
     path: (
-      <><path d="M16.1788 28.3727C22.9049 28.3727 28.3575 22.9167 28.3575 16.1864C28.3575 9.45602 22.9049 4 16.1788 4C9.45262 4 4 9.45602 4 16.1864C4 22.9167 9.45262 28.3727 16.1788 28.3727Z" fill="white" />
-        <path d="M15.0033 31.9889C14.9415 31.982 14.7106 31.9612 14.4901 31.9425C11.223 31.6667 7.93767 30.247 5.43004 28.0274C4.99889 27.6458 4.23316 26.8733 3.85646 26.44C2.4514 24.8236 1.2866 22.7024 0.668149 20.6338C0.173626 18.9796 -0.0322422 17.4419 0.00406254 15.6734C0.040114 13.9173 0.278495 12.53 0.825733 10.8918C1.08986 10.1011 1.29956 9.60221 1.70922 8.78984C2.51657 7.18885 3.38406 5.99197 4.67604 4.69656C5.52252 3.84783 6.20871 3.27802 7.09811 2.68526C9.36393 1.17515 11.8196 0.309278 14.6024 0.039284C15.1422 -0.0130947 16.8527 -0.0130947 17.3926 0.039284C20.7587 0.365877 23.7314 1.601 26.2923 3.73704C27.116 4.42407 28.1807 5.55505 28.8436 6.44719C31.6887 10.2764 32.6773 15.1916 31.5358 19.8322C31.2533 20.9804 30.8902 21.9724 30.3504 23.0704C29.5648 24.6683 28.671 25.9278 27.4165 27.205C26.5666 28.0702 25.835 28.6787 24.8652 29.3271C22.6894 30.7816 20.3653 31.6225 17.6652 31.9321C17.2592 31.9787 15.2888 32.0207 15.0033 31.9889ZM16.9917 25.1712C18.8823 25.002 20.6263 24.3032 22.1326 23.1113C22.5552 22.777 23.2914 22.0396 23.6312 21.6103C24.1247 20.9868 24.5538 20.2857 24.8721 19.5826C25.1039 19.0704 25.4057 18.1488 25.5097 17.6351C25.6108 17.1354 25.7433 16.2579 25.7209 16.2355C25.7118 16.2264 23.5652 16.2189 20.9506 16.2189C17.1761 16.2189 16.194 16.2272 16.1833 16.2591C16.1759 16.2811 16.173 16.5302 16.1768 16.8126C16.1805 17.095 16.1851 17.5102 16.1868 17.7353L16.1899 18.1444H19.6055C21.7546 18.1444 23.0211 18.1558 23.0211 18.1751C23.0211 18.1919 22.9548 18.3616 22.8737 18.5521C22.3263 19.8391 21.3595 20.9862 20.1596 21.7725C19.003 22.5304 17.7812 22.912 16.3903 22.9497C15.4363 22.9755 14.7511 22.8766 13.8834 22.5877C12.6331 22.1713 11.512 21.4157 10.6478 20.4068C9.74292 19.3505 9.15631 18.049 8.95469 16.6506C8.88909 16.1955 8.8802 15.2185 8.93793 14.8069C9.1624 13.2064 9.78909 11.8594 10.8394 10.7198C12.0057 9.45435 13.6835 8.60946 15.4042 8.42113C15.8613 8.3711 16.7399 8.38871 17.2162 8.45745C17.9895 8.56904 18.67 8.78029 19.3919 9.13278C19.8477 9.35535 20.1869 9.57556 20.7901 10.0404L21.2187 10.3707L21.8971 9.52227C22.2702 9.05562 22.5824 8.6559 22.5908 8.63401C22.6043 8.59872 21.665 7.86802 21.2572 7.59662C20.7706 7.2728 19.9921 6.90017 19.3169 6.66789C18.1722 6.27414 17.1207 6.11618 15.8852 6.15241C14.4453 6.19462 13.1321 6.52734 11.8767 7.16807C8.94397 8.66487 7.00164 11.5205 6.69474 14.7867C6.6449 15.3171 6.6727 16.5626 6.74461 17.0212C7.02135 18.7862 7.67901 20.3013 8.7505 21.6424C9.09061 22.068 9.79167 22.7707 10.2073 23.1026C11.6774 24.2764 13.4558 24.9987 15.2919 25.1677C15.7291 25.2079 16.5623 25.2097 16.9917 25.1712H16.9917ZM25.7471 13.7478V12.785L20.9605 12.7931L16.1739 12.8012L16.1709 13.756L16.1679 14.7107H20.9575H25.7471V13.7478V13.7478Z" fill="#E72F28" />
-      </>),
-    viewBox: '0 0 32 32',
+      <>
+        <path
+          d="M16.1788 28.3727C22.9049 28.3727 28.3575 22.9167 28.3575 16.1864C28.3575 9.45602 22.9049 4 16.1788 4C9.45262 4 4 9.45602 4 16.1864C4 22.9167 9.45262 28.3727 16.1788 28.3727Z"
+          fill="white"
+        />
+        <path
+          d="M15.0033 31.9889C14.9415 31.982 14.7106 31.9612 14.4901 31.9425C11.223 31.6667 7.93767 30.247 5.43004 28.0274C4.99889 27.6458 4.23316 26.8733 3.85646 26.44C2.4514 24.8236 1.2866 22.7024 0.668149 20.6338C0.173626 18.9796 -0.0322422 17.4419 0.00406254 15.6734C0.040114 13.9173 0.278495 12.53 0.825733 10.8918C1.08986 10.1011 1.29956 9.60221 1.70922 8.78984C2.51657 7.18885 3.38406 5.99197 4.67604 4.69656C5.52252 3.84783 6.20871 3.27802 7.09811 2.68526C9.36393 1.17515 11.8196 0.309278 14.6024 0.039284C15.1422 -0.0130947 16.8527 -0.0130947 17.3926 0.039284C20.7587 0.365877 23.7314 1.601 26.2923 3.73704C27.116 4.42407 28.1807 5.55505 28.8436 6.44719C31.6887 10.2764 32.6773 15.1916 31.5358 19.8322C31.2533 20.9804 30.8902 21.9724 30.3504 23.0704C29.5648 24.6683 28.671 25.9278 27.4165 27.205C26.5666 28.0702 25.835 28.6787 24.8652 29.3271C22.6894 30.7816 20.3653 31.6225 17.6652 31.9321C17.2592 31.9787 15.2888 32.0207 15.0033 31.9889ZM16.9917 25.1712C18.8823 25.002 20.6263 24.3032 22.1326 23.1113C22.5552 22.777 23.2914 22.0396 23.6312 21.6103C24.1247 20.9868 24.5538 20.2857 24.8721 19.5826C25.1039 19.0704 25.4057 18.1488 25.5097 17.6351C25.6108 17.1354 25.7433 16.2579 25.7209 16.2355C25.7118 16.2264 23.5652 16.2189 20.9506 16.2189C17.1761 16.2189 16.194 16.2272 16.1833 16.2591C16.1759 16.2811 16.173 16.5302 16.1768 16.8126C16.1805 17.095 16.1851 17.5102 16.1868 17.7353L16.1899 18.1444H19.6055C21.7546 18.1444 23.0211 18.1558 23.0211 18.1751C23.0211 18.1919 22.9548 18.3616 22.8737 18.5521C22.3263 19.8391 21.3595 20.9862 20.1596 21.7725C19.003 22.5304 17.7812 22.912 16.3903 22.9497C15.4363 22.9755 14.7511 22.8766 13.8834 22.5877C12.6331 22.1713 11.512 21.4157 10.6478 20.4068C9.74292 19.3505 9.15631 18.049 8.95469 16.6506C8.88909 16.1955 8.8802 15.2185 8.93793 14.8069C9.1624 13.2064 9.78909 11.8594 10.8394 10.7198C12.0057 9.45435 13.6835 8.60946 15.4042 8.42113C15.8613 8.3711 16.7399 8.38871 17.2162 8.45745C17.9895 8.56904 18.67 8.78029 19.3919 9.13278C19.8477 9.35535 20.1869 9.57556 20.7901 10.0404L21.2187 10.3707L21.8971 9.52227C22.2702 9.05562 22.5824 8.6559 22.5908 8.63401C22.6043 8.59872 21.665 7.86802 21.2572 7.59662C20.7706 7.2728 19.9921 6.90017 19.3169 6.66789C18.1722 6.27414 17.1207 6.11618 15.8852 6.15241C14.4453 6.19462 13.1321 6.52734 11.8767 7.16807C8.94397 8.66487 7.00164 11.5205 6.69474 14.7867C6.6449 15.3171 6.6727 16.5626 6.74461 17.0212C7.02135 18.7862 7.67901 20.3013 8.7505 21.6424C9.09061 22.068 9.79167 22.7707 10.2073 23.1026C11.6774 24.2764 13.4558 24.9987 15.2919 25.1677C15.7291 25.2079 16.5623 25.2097 16.9917 25.1712H16.9917ZM25.7471 13.7478V12.785L20.9605 12.7931L16.1739 12.8012L16.1709 13.756L16.1679 14.7107H20.9575H25.7471V13.7478V13.7478Z"
+          fill="#E72F28"
+        />
+      </>
+    ),
+    viewBox: "0 0 32 32",
   },
   univ2_eth_usdt_circles_color: {
     path: (
       <>
-        <circle cx="18.5" cy="19" r="8.5" fill="url(#paint0_linear_9009_42515)" />
+        <circle
+          cx="18.5"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42515)"
+        />
         <path
           d="M23.6047 19.1941C23.6047 18.5533 21.8613 18.0188 19.5446 17.8955L19.5444 16.8746H22.4372V14.75H14.5271V16.8746H17.4197V17.9004C15.1451 18.0322 13.4436 18.5612 13.4436 19.1941C13.4436 19.827 15.1451 20.356 17.4197 20.4876V24.1535H19.5444V20.4926C21.8613 20.3695 23.6047 19.8348 23.6047 19.1941ZM18.5242 19.8252C16.0374 19.8252 14.0214 19.4404 14.0214 18.9653C14.0214 18.5631 15.467 18.2254 17.4197 18.1314V18.3735H17.4199V19.3657C17.7719 19.3854 18.1419 19.3958 18.5242 19.3958C18.8761 19.3958 19.2179 19.3868 19.5446 19.3705V18.1277C21.5396 18.2159 23.027 18.5572 23.027 18.9653C23.0269 19.4404 21.0109 19.8252 18.5242 19.8252Z"
           fill="white"
         />
-        <circle cx="10.5" cy="19" r="8.5" fill="url(#paint1_linear_9009_42515)" />
-        <path d="M10.7176 13.769V20.9946L7.23051 19.0968L10.7176 13.769Z" fill="#FEFBFD" />
-        <path d="M10.7176 13.769L14.2048 19.0968L10.7176 20.9946V13.769Z" fill="#FEFBFD" />
-        <path d="M10.7176 21.6028V24.2305L7.23047 19.7059L10.7176 21.6028Z" fill="#FEFBFD" />
-        <path d="M10.7176 24.2305V21.6028L14.2048 19.7059L10.7176 24.2305Z" fill="#FEFBFD" />
+        <circle
+          cx="10.5"
+          cy="19"
+          r="8.5"
+          fill="url(#paint1_linear_9009_42515)"
+        />
+        <path
+          d="M10.7176 13.769V20.9946L7.23051 19.0968L10.7176 13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M10.7176 13.769L14.2048 19.0968L10.7176 20.9946V13.769Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M10.7176 21.6028V24.2305L7.23047 19.7059L10.7176 21.6028Z"
+          fill="#FEFBFD"
+        />
+        <path
+          d="M10.7176 24.2305V21.6028L14.2048 19.7059L10.7176 24.2305Z"
+          fill="#FEFBFD"
+        />
         <mask
           id="path-5-outside-1_9009_42515"
           maskUnits="userSpaceOnUse"
@@ -2253,17 +2450,27 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   univ2_dai_usdt_circles_color: {
     path: (
       <>
-        <circle cx="18.5" cy="19" r="8.5" fill="url(#paint0_linear_9009_42550)" />
+        <circle
+          cx="18.5"
+          cy="19"
+          r="8.5"
+          fill="url(#paint0_linear_9009_42550)"
+        />
         <path
           d="M23.6047 19.1941C23.6047 18.5533 21.8613 18.0188 19.5446 17.8955L19.5444 16.8746H22.4372V14.75H14.5271V16.8746H17.4197V17.9004C15.1451 18.0322 13.4436 18.5612 13.4436 19.1941C13.4436 19.827 15.1451 20.356 17.4197 20.4876V24.1535H19.5444V20.4926C21.8613 20.3695 23.6047 19.8348 23.6047 19.1941ZM18.5242 19.8252C16.0374 19.8252 14.0214 19.4404 14.0214 18.9653C14.0214 18.5631 15.467 18.2254 17.4197 18.1314V18.3735H17.4199V19.3657C17.7719 19.3854 18.1419 19.3958 18.5242 19.3958C18.8761 19.3958 19.2179 19.3868 19.5446 19.3705V18.1277C21.5396 18.2159 23.027 18.5572 23.027 18.9653C23.0269 19.4404 21.0109 19.8252 18.5242 19.8252Z"
           fill="white"
         />
-        <circle cx="10.499" cy="19" r="8.5" fill="url(#paint1_linear_9009_42550)" />
+        <circle
+          cx="10.499"
+          cy="19"
+          r="8.5"
+          fill="url(#paint1_linear_9009_42550)"
+        />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -2361,12 +2568,20 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   guniv3_dai_usdc1_circles_color: {
     path: (
       <>
-        <mask id="b" width="30" height="22" x="1" y="5" fill="#000" maskUnits="userSpaceOnUse">
+        <mask
+          id="b"
+          width="30"
+          height="22"
+          x="1"
+          y="5"
+          fill="#000"
+          maskUnits="userSpaceOnUse"
+        >
           <path fill="#fff" d="M1 5h30v22H1z" />
           <path
             fillRule="evenodd"
@@ -2436,7 +2651,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   uni_lp_circle_color: {
     path: (
@@ -2487,14 +2702,20 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 9 9',
+    viewBox: "0 0 9 9",
   },
   uni_lp_circle_mono: {
     path: (
       <>
         <g id="Group 1897">
           <g id="Group 1702">
-            <circle id="Ellipse 251" cx="14.8293" cy="14.8293" r="14.8293" fill="transparent" />
+            <circle
+              id="Ellipse 251"
+              cx="14.8293"
+              cy="14.8293"
+              r="14.8293"
+              fill="transparent"
+            />
             <circle
               id="Ellipse 252"
               cx="14.8293"
@@ -2508,7 +2729,13 @@ export const tokenIcons = {
             />
           </g>
           <g id="Group 1703" filter="url(#filter0_d_2726_31734)">
-            <circle id="Ellipse 9" cx="24.1951" cy="24.1955" r="7.80488" fill="#787A9B" />
+            <circle
+              id="Ellipse 9"
+              cx="24.1951"
+              cy="24.1955"
+              r="7.80488"
+              fill="#787A9B"
+            />
             <path
               id="Union"
               fillRule="evenodd"
@@ -2537,7 +2764,10 @@ export const tokenIcons = {
             />
             <feOffset />
             <feGaussianBlur stdDeviation="2" />
-            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+            />
             <feBlend
               mode="normal"
               in2="BackgroundImageFix"
@@ -2553,7 +2783,7 @@ export const tokenIcons = {
         </defs>
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   gusd_circle_color: {
     path: (
@@ -2568,7 +2798,7 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   gusd_circle_mono: {
     path: (
@@ -2583,18 +2813,23 @@ export const tokenIcons = {
         />
       </>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   curve_circle_color: {
     path: (
       <svg fill="none">
         <rect width="36" height="36" fill="#E5E5E5" />
         <g clipPath="url(#clip0_894_25347)">
-          <rect width="1440" height="1736" transform="translate(-524 -297)" fill="white" />
+          <rect
+            width="1440"
+            height="1736"
+            transform="translate(-524 -297)"
+            fill="white"
+          />
           <g opacity="0.5">
             <mask
               id="mask0_894_25347"
-              style={{ maskType: 'alpha' }}
+              style={{ maskType: "alpha" }}
               maskUnits="userSpaceOnUse"
               x="-524"
               y="-297"
@@ -2636,7 +2871,12 @@ export const tokenIcons = {
             strokeDasharray="2 5"
           />
           <g filter="url(#filter2_d_894_25347)">
-            <circle cx="24.1951" cy="24.1955" r="7.80488" fill="url(#paint2_linear_894_25347)" />
+            <circle
+              cx="24.1951"
+              cy="24.1955"
+              r="7.80488"
+              fill="url(#paint2_linear_894_25347)"
+            />
             <path
               d="M23.7978 25.4586L23.1171 25.6094L23.0331 25.2906L23.7569 25.1592L23.7978 25.4586Z"
               fill="#0000FF"
@@ -8734,8 +8974,16 @@ export const tokenIcons = {
             colorInterpolationFilters="sRGB"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_894_25347" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="10"
+              result="effect1_foregroundBlur_894_25347"
+            />
           </filter>
           <filter
             id="filter1_f_894_25347"
@@ -8747,8 +8995,16 @@ export const tokenIcons = {
             colorInterpolationFilters="sRGB"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_894_25347" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="10"
+              result="effect1_foregroundBlur_894_25347"
+            />
           </filter>
           <filter
             id="filter2_d_894_25347"
@@ -8768,8 +9024,15 @@ export const tokenIcons = {
             />
             <feOffset />
             <feGaussianBlur stdDeviation="2" />
-            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_894_25347" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_894_25347"
+            />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -8812,12 +9075,17 @@ export const tokenIcons = {
             <stop offset="0.822917" stopColor="#6D98CE" />
           </linearGradient>
           <clipPath id="clip0_894_25347">
-            <rect width="1440" height="1736" fill="white" transform="translate(-524 -297)" />
+            <rect
+              width="1440"
+              height="1736"
+              fill="white"
+              transform="translate(-524 -297)"
+            />
           </clipPath>
         </defs>
       </svg>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
   curve_circle_mono: {
     path: (
@@ -8830,11 +9098,16 @@ export const tokenIcons = {
       >
         <rect width="36" height="36" fill="#E5E5E5" />
         <g clipPath="url(#clip0_894_25347)">
-          <rect width="1440" height="1736" transform="translate(-568 -297)" fill="white" />
+          <rect
+            width="1440"
+            height="1736"
+            transform="translate(-568 -297)"
+            fill="white"
+          />
           <g opacity="0.5">
             <mask
               id="mask0_894_25347"
-              style={{ maskType: 'alpha' }}
+              style={{ maskType: "alpha" }}
               maskUnits="userSpaceOnUse"
               x="-568"
               y="-297"
@@ -18016,8 +18289,16 @@ export const tokenIcons = {
             colorInterpolationFilters="sRGB"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_894_25347" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="10"
+              result="effect1_foregroundBlur_894_25347"
+            />
           </filter>
           <filter
             id="filter1_f_894_25347"
@@ -18029,8 +18310,16 @@ export const tokenIcons = {
             colorInterpolationFilters="sRGB"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_894_25347" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="10"
+              result="effect1_foregroundBlur_894_25347"
+            />
           </filter>
           <filter
             id="filter2_d_894_25347"
@@ -18050,8 +18339,15 @@ export const tokenIcons = {
             />
             <feOffset />
             <feGaussianBlur stdDeviation="2" />
-            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_894_25347" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_894_25347"
+            />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -18082,11 +18378,16 @@ export const tokenIcons = {
             <stop offset="1" stopColor="#FFC8CE" stopOpacity="0" />
           </radialGradient>
           <clipPath id="clip0_894_25347">
-            <rect width="1440" height="1736" fill="white" transform="translate(-568 -297)" />
+            <rect
+              width="1440"
+              height="1736"
+              fill="white"
+              transform="translate(-568 -297)"
+            />
           </clipPath>
         </defs>
       </svg>
     ),
-    viewBox: '0 0 32 32',
+    viewBox: "0 0 32 32",
   },
-}
+};

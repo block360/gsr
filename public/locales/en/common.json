@@ -1,3 +1,11 @@
 {
-  "test": "hello"
+  "test": "hello",
+  "connect-with": "{{ connectionKind }}",
+  "new-to-ethereum": "New to Ethereum? ",
+  "connect-wallet": "Connect a wallet",
+  "connect-confirm": "Confirm in {{ connectionKind }}",
+  "learn-about-wallets": "Learn more about wallets",
+  "learn-more-link": "https://ethereum.org/en/wallets/find-wallet/",
+  "app-wrong-network": "Oops, your wallet is not supported by the current GSUcoin.app network.",
+  "app-wrong-network-desc": "It seems that GSUcoin.app is currently running on network that is not supported by your wallet. Please click on the button below to change it."
 }

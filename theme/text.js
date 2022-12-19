@@ -1,63 +1,63 @@
 export const text = {
   heading: {
-    fontFamily: 'heading',
-    lineHeight: 'heading',
+    fontFamily: "heading",
+    lineHeight: "heading",
     fontSize: [5, 6],
-    fontWeight: 'semiBold',
-    color: 'text'
+    fontWeight: "semiBold",
+    color: "text",
   },
   smallCaps: {
     fontSize: 1,
-    fontWeight: 'body',
-    color: 'textSecondary',
-    letterSpacing: '0.05em'
+    fontWeight: "body",
+    color: "textSecondary",
+    letterSpacing: "0.05em",
   },
   secondary: {
-    color: 'textSecondary',
-    fontSize: '15px',
-    fontWeight: 'body'
+    color: "textSecondary",
+    fontSize: "15px",
+    fontWeight: "body",
   },
   largeHeading: {
-    variant: 'text.heading',
-    fontSize: [7, 8]
+    variant: "text.heading",
+    fontSize: [7, 8],
   },
   mediumHeading: {
-    variant: 'text.heading',
-    fontSize: [6, 7]
+    variant: "text.heading",
+    fontSize: [6, 7],
   },
   smallHeading: {
-    variant: 'text.heading',
-    fontSize: [5, 6]
+    variant: "text.heading",
+    fontSize: [5, 6],
   },
   microHeading: {
-    variant: 'text.heading',
-    fontSize: [4, 5]
+    variant: "text.heading",
+    fontSize: [4, 5],
   },
   largeText: {
     fontSize: [3, 4],
-    color: 'text'
+    color: "text",
   },
   text: {
     fontSize: [2, 3],
-    color: 'text'
+    color: "text",
   },
   error: {
     fontSize: [1, 2],
-    color: 'error'
+    color: "error",
   },
   smallText: {
     fontSize: [1, 2],
-    color: 'text'
+    color: "text",
   },
   microText: {
     fontSize: [0, 1],
-    color: 'text'
+    color: "text",
   },
   caps: {
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
     fontSize: 1,
-    fontWeight: 'caps',
-    color: 'textSecondary',
-    letterSpacing: '0.05em'
-  }
+    fontWeight: "caps",
+    color: "textSecondary",
+    letterSpacing: "0.05em",
+  },
 };

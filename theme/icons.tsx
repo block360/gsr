@@ -1,5 +1,6 @@
 import React from "react";
-
+import { icons as daiUiIcons } from "@makerdao/dai-ui-icons";
+import { icons as brandingIcons } from "@makerdao/dai-ui-icons-branding";
 import { tokenIcons } from "./tokenIcons";
 
 const customIcons = {
@@ -2612,6 +2613,8 @@ const userWalletIcons = {
 export type UserWalletIconName = keyof typeof userWalletIcons;
 
 export const icons = {
+  ...brandingIcons,
+  ...daiUiIcons,
   ...customIcons,
   ...customLandingIcons,
   ...tokenIcons,

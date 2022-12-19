@@ -1,7 +1,32 @@
 export const globalStyles = `
+html,
+body,
+body > div:first-of-type,
+div#__next {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-anchor: none;
+  overflow-x: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
   @font-face {
     font-family: "Open Sans";
-    src: url("../static/fonts/OpenSans/OpenSans-Regularttf") format("truetype");
+    src: url("../static/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
