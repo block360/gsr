@@ -1,4 +1,3 @@
-// import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react'
 import { Icon } from "@makerdao/dai-ui-icons";
 import { MewConnectConnector } from "@myetherwallet/mewconnect-connector";
 import { LedgerConnector, TrezorConnector } from "@oasisdex/connectors";
@@ -417,7 +416,7 @@ export function ConnectWallet() {
           redirectState$.next(undefined);
         } else {
           //reidirec url
-          alert(`${web3Context.account}`);
+          replace("/signedIn");
         }
       }
     });
