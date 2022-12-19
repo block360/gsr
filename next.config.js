@@ -7,6 +7,9 @@ const nextConfig = {
   i18n,
   reactStrictMode: true,
   swcMinify: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = withSentryConfig(nextConfig, {
