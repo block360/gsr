@@ -1,5 +1,6 @@
 import { isAppContextAvailable } from "components/AppContextProvider";
 import { AppLinkProps } from "components/Links";
+import { AppHeader } from "components/Header";
 import { staticFilesRuntimeUrl } from "helpers/staticPaths";
 import { WithChildren } from "helpers/types";
 import React from "react";
@@ -87,7 +88,7 @@ export function AppLayout({ children }: WithChildren) {
   return (
     <>
       <WithAnnouncementLayout
-        header={<></>}
+        header={<AppHeader />}
         sx={{
           zIndex: 2,
           backgroundRepeat: `no-repeat`,

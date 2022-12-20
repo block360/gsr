@@ -27,7 +27,6 @@ export function setupAppContext() {
     networksById,
     (network) => network.infuraUrl
   );
-  console.log("chainIdToRpcUrl", chainIdToRpcUrl);
   const chainIdToDAIContractDesc = mapValues(
     networksById,
     (network) => network.tokens.DAI
