@@ -18,18 +18,9 @@ export default function Home() {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <main>
-        <h1>${t("test")} &#x24;</h1>
-        <p>inprogress $</p>
-        <button
-          type="button"
-          onClick={() => {
-            throw new Error("Sentry Frontend Error");
-          }}
-        >
-          Throw error
-        </button>
+        <p>inprogress </p>
       </main>
-      <footer>GSU SAVE RATE $</footer>
+      <footer>GSU SAVE RATE</footer>
     </div>
   );
 }

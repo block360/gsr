@@ -16,6 +16,10 @@ import { readOnlyEnhanceProvider } from "blockchain/readOnlyEnhancedProviderProx
 import { AppLayout, MarketingLayoutProps } from "components/Layouts";
 import { SharedUIProvider } from "components/SharedUIProvider";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { mixpanelInit } from "../analytics/mixpanel";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { trackingEvents } from "analytics/analytics";
 
 const key = "gsr-cache";
 const cache = createCache({ key });
@@ -42,8 +46,24 @@ interface CustomAppProps {
   };
 }
 
+mixpanelInit();
+
 function App({ Component, pageProps }: AppProps & CustomAppProps) {
   const Layout = Component.layout || AppLayout;
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      // track events when not in development
+      if (process.env.NODE_ENV !== "development") {
+        trackingEvents.pageView(url);
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CacheProvider value={cache}>
@@ -67,5 +87,5 @@ function App({ Component, pageProps }: AppProps & CustomAppProps) {
 }
 export default appWithTranslation(
   App as React.ComponentType<AppProps> | React.ElementType<AppProps>,
-  nextI18NextConfig
+  nextI18NextConfig as any
 );

@@ -1,31 +1,32 @@
-import { useEffect, useState } from 'react'
-import { theme } from 'theme'
+import { useEffect, useState } from "react";
+import { theme } from "theme";
 
 export function useBreakpointIndex() {
-  const breakpoints = theme.breakpoints
-  const [value, setValue] = useState(1)
+  const breakpoints = theme.breakpoints;
+  const [value, setValue] = useState(1);
 
   useEffect(() => {
     function getIndex() {
-      return breakpoints.filter((bp) => window.matchMedia(`screen and (min-width: ${bp})`).matches)
-        .length
+      return breakpoints.filter(
+        (bp) => window.matchMedia(`screen and (min-width: ${bp})`).matches
+      ).length;
     }
 
     function onResize() {
-      const newValue = getIndex()
+      const newValue = getIndex();
       if (value !== newValue) {
-        setValue(newValue)
+        setValue(newValue);
       }
     }
 
-    onResize()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [breakpoints, value])
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [breakpoints, value]);
 
-  return value
+  return value;
 }
 
 export function useOnMobile() {
-  return useBreakpointIndex() === 0
+  return useBreakpointIndex() === 0;
 }
