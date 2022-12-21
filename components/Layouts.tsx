@@ -1,7 +1,5 @@
 import { isAppContextAvailable } from "components/AppContextProvider";
-import { AppLinkProps } from "components/Links";
 import { AppHeader } from "components/Header";
-import { staticFilesRuntimeUrl } from "helpers/staticPaths";
 import { WithChildren } from "helpers/types";
 import React from "react";
 import { Container, Flex, SxStyleProp } from "theme-ui";
@@ -102,86 +100,4 @@ export function AppLayout({ children }: WithChildren) {
       </WithAnnouncementLayout>
     </>
   );
-}
-
-export function LandingPageLayout({ children }: WithChildren) {
-  if (!isAppContextAvailable()) {
-    return null;
-  }
-
-  return (
-    <>
-      <WithAnnouncementLayout
-        header={<></>}
-        showAnnouncement={false}
-        variant="landingContainer"
-        sx={{
-          position: "relative",
-          backgroundRepeat: `no-repeat`,
-          backgroundPosition: "top center",
-          backgroundSize: [undefined, undefined, "100%"],
-        }}
-      >
-        {children}
-      </WithAnnouncementLayout>
-    </>
-  );
-}
-
-export function ProductPagesLayout({ children }: WithChildren) {
-  if (!isAppContextAvailable()) {
-    return null;
-  }
-
-  return (
-    <>
-      <WithAnnouncementLayout
-        header={<></>}
-        showAnnouncement={false}
-        variant="landingContainer"
-        sx={{
-          position: "relative",
-          backgroundRepeat: `no-repeat`,
-          backgroundPosition: "top center",
-          backgroundSize: [undefined, undefined, "100%"],
-        }}
-      >
-        {children}
-      </WithAnnouncementLayout>
-    </>
-  );
-}
-
-export interface MarketingLayoutProps extends WithChildren {
-  variant?: string;
-}
-
-export function MarketingLayout({ children, variant }: MarketingLayoutProps) {
-  if (!isAppContextAvailable()) {
-    return null;
-  }
-
-  return (
-    <>
-      <BasicLayout
-        header={<></>}
-        variant={variant || "marketingContainer"}
-        sx={{
-          position: "relative",
-          minHeight: "900px",
-        }}
-      >
-        {children}
-      </BasicLayout>
-    </>
-  );
-}
-
-export function ConnectPageLayout({
-  children,
-}: WithChildren & { backLink: AppLinkProps }) {
-  if (!isAppContextAvailable()) {
-    return null;
-  }
-  return <BasicLayout header={<></>}>{children}</BasicLayout>;
 }

@@ -58,3 +58,7 @@ more analytics events can be added to `analytics/analytics.ts` for tracking
 ## internationalization
 
 any new translation or locale is need to be added here `public/locales`
+
+## styles and theme settings
+
+all stlye and theme related stuf is handled inside `theme` folder
