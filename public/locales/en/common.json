@@ -3,6 +3,7 @@
   "connect-with": "{{ connectionKind }}",
   "new-to-ethereum": "New to Ethereum? ",
   "connect-wallet": "Connect a wallet",
+  "disconnect-wallet": "Disconnect Wallet",
   "connect-confirm": "Confirm in {{ connectionKind }}",
   "learn-about-wallets": "Learn more about wallets",
   "learn-more-link": "https://ethereum.org/en/wallets/find-wallet/",
@@ -13,6 +14,14 @@
   "user-wrong-network-desc": "It seems your wallet is running on a different network from GSUcoin.app. Please manually change the network in your wallet.",
   "switch-network": "Switch network",
   "switch-to-mainnet": "Switch to Mainnet",
+  "account": "Account",
+  "account-privacy": "Privacy",
+  "account-support": "Support",
+  "account-terms": "Terms",
+  "activity": "Activity",
+  "and": "and",
+  "address": "Address",
+  "address-invalid": "Address not found",
   "nav": {
     "login": "log in page"
   }

@@ -13,7 +13,7 @@ import { AppContextProvider } from "components/AppContextProvider";
 import { ModalProvider } from "helpers/modalHook";
 import Web3 from "web3";
 import { readOnlyEnhanceProvider } from "blockchain/readOnlyEnhancedProviderProxy";
-import { AppLayout, MarketingLayoutProps } from "components/Layouts";
+import { AppLayout } from "components/Layouts";
 import { SharedUIProvider } from "components/SharedUIProvider";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { mixpanelInit } from "../analytics/mixpanel";
@@ -40,8 +40,7 @@ function getLibrary(
 interface CustomAppProps {
   Component: {
     theme?: string;
-    layoutProps?: MarketingLayoutProps;
-    layout?: (props: MarketingLayoutProps) => JSX.Element;
+    layout?: (props: any) => JSX.Element;
     seoTags?: JSX.Element;
   };
 }

@@ -1,7 +1,6 @@
 import { Global } from "@emotion/core";
 import { Icon } from "@makerdao/dai-ui-icons";
 import { AppLink } from "components/Links";
-
 import {
   UserSettings,
   UserSettingsButtonContents,
@@ -12,7 +11,6 @@ import { WithChildren } from "helpers/types";
 import { useOutsideElementClickHandler } from "helpers/useOutsideElementClickHandler";
 import { InitOptions } from "i18next";
 import { useTranslation } from "next-i18next";
-import getConfig from "next/config";
 import { useRouter } from "next/router";
 import React, { useCallback, useState } from "react";
 import { TRANSITIONS } from "theme";
@@ -320,9 +318,6 @@ function navLinkColor(isActive: boolean) {
 }
 
 const LINKS = {
-  "dai-wallet": `${getConfig().publicRuntimeConfig.apiHost}/daiwallet`,
-  learn: "/inprogress",
-  blog: "/inprogres",
   loginPage: `/signedIn`,
 };
 
@@ -512,16 +507,7 @@ export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [showAssets, setShowAssets] = useState(false);
 
-  const [notificationsPanelOpen, setNotificationsPanelOpen] = useState(false);
-  const notificationsRef = useOutsideElementClickHandler(() =>
-    setNotificationsPanelOpen(false)
-  );
-
-  const links = [
-    // { labelKey: 'nav.multiply', url: LINKS.multiply },
-    { labelKey: "nav.login", url: LINKS.loginPage },
-    // { labelKey: 'nav.earn', url: LINKS.earn },
-  ];
+  const links = [{ labelKey: "nav.login", url: LINKS.loginPage }];
 
   const closeMenu = useCallback(() => setIsOpen(false), []);
 

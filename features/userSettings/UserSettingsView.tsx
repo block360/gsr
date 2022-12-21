@@ -1,5 +1,4 @@
 import { Icon } from "@makerdao/dai-ui-icons";
-import BigNumber from "bignumber.js";
 import { useAppContext } from "components/AppContextProvider";
 import {
   disconnect,
@@ -7,71 +6,11 @@ import {
   getWalletKind,
 } from "components/connectWallet/ConnectWallet";
 import { AppLink } from "components/Links";
-import { formatAddress, formatCryptoBalance } from "helpers/formatters/format";
+import { formatAddress } from "helpers/formatters/format";
 import { useObservable } from "helpers/observableHook";
 import { useTranslation } from "next-i18next";
 import React, { useRef } from "react";
 import { Box, Button, Flex, Grid, SxStyleProp, Text, Textarea } from "theme-ui";
-import { UnreachableCaseError } from "ts-essentials";
-
-import {
-  UserSettingsErrorMessages,
-  UserSettingsState,
-  UserSettingsWarningMessages,
-} from "./userSettings";
-
-const validationMessageStyles: SxStyleProp = {
-  fontWeight: "semiBold",
-  fontSize: 2,
-};
-
-const saveStatusMessageStyles: SxStyleProp = {
-  fontWeight: "semiBold",
-  fontSize: 2,
-  textAlign: "center",
-  mt: 3,
-};
-
-function getSlippageLimitMessageTranslation(
-  message: UserSettingsErrorMessages | UserSettingsWarningMessages
-) {
-  switch (message) {
-    case "invalidSlippage":
-      return "user-settings.slippage-limit.errors.invalid-slippage";
-    case "highSlippage":
-      return "user-settings.slippage-limit.warnings.high-slippage";
-    default:
-      throw new UnreachableCaseError(message);
-  }
-}
-
-function SlippageLimitMessages({
-  errors,
-  warnings,
-}: Pick<UserSettingsState, "errors" | "warnings">) {
-  const { t } = useTranslation();
-
-  return (
-    <Grid gap={2} mb={2}>
-      {warnings.map((message) => (
-        <Text
-          sx={{ ...validationMessageStyles, color: "warning" }}
-          key={message}
-        >
-          {t(getSlippageLimitMessageTranslation(message))}
-        </Text>
-      ))}
-      {errors.map((message) => (
-        <Text
-          sx={{ ...validationMessageStyles, color: "critical100" }}
-          key={message}
-        >
-          {t(getSlippageLimitMessageTranslation(message))}
-        </Text>
-      ))}
-    </Grid>
-  );
-}
 
 function WalletInfo() {
   const { web3Context$ } = useAppContext();
