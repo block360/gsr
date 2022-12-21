@@ -16,67 +16,6 @@ const etherscanAPIKey =
   process.env.ETHERSCAN_API_KEY ||
   getConfig()?.publicRuntimeConfig?.etherscan ||
   "";
-const mainnetCacheUrl =
-  process.env.MAINNET_CACHE_URL ||
-  getConfig()?.publicRuntimeConfig?.mainnetCacheURL ||
-  "https://cache-goerli-dev.gsuprotocol.io/api/v1";
-
-export const charterIlks = [];
-
-export const cropJoinIlks = [];
-
-export const supportedIlks = [
-  /* export just for test purposes */
-  "ETH-A",
-  "ETH-B",
-  "ETH-C",
-  "DAI",
-  "WBTC-A",
-  "WBTC-B",
-  "WBTC-C",
-  // 'BAT-A',
-  // 'USDC-A',
-  // 'USDC-B',
-  // 'RENBTC-A',
-  // 'ZRX-A',
-  // 'KNC-A',
-  // 'MANA-A',
-  // 'TUSD-A',
-  // 'USDT-A',
-  // 'PAXUSD-A',
-  // 'COMP-A',
-  // 'LRC-A',
-  // 'LINK-A',
-  // 'BAL-A',
-  // 'YFI-A',
-  // 'GUSD-A',
-  // 'UNI-A',
-  // 'AAVE-A',
-  // 'UNIV2DAIETH-A',
-  // 'UNIV2USDCETH-A',
-  // 'UNIV2DAIUSDC-A',
-  // 'UNIV2WBTCETH-A',
-  // 'UNIV2ETHUSDT-A',
-  // 'UNIV2LINKETH-A',
-  // 'UNIV2UNIETH-A',
-  // 'UNIV2WBTCDAI-A',
-  // 'UNIV2AAVEETH-A',
-  // 'UNIV2DAIUSDT-A',
-  // 'GUNIV3DAIUSDC1-A',
-  // 'GUNIV3DAIUSDC2-A',
-  // 'MATIC-A',
-  // 'WSTETH-A',
-  // 'WSTETH-B',
-  ...charterIlks,
-  ...cropJoinIlks,
-] as const;
-
-export const ilksNotSupportedOnGoerli = [
-  "GUNIV3DAIUSDC1-A",
-  "GUNIV3DAIUSDC2-A",
-  ...charterIlks,
-  ...cropJoinIlks,
-] as const;
 
 const tokensMainnet = {} as Dictionary<ContractDesc>;
 
@@ -89,7 +28,6 @@ const protoMain = {
 
   tokens: tokensMainnet,
   tokensMainnet: tokensMainnet,
-  joins: {},
 
   etherscan: {
     url: "https://etherscan.io",
@@ -104,15 +42,6 @@ const protoMain = {
 export type NetworkConfig = typeof protoMain;
 
 const main: NetworkConfig = protoMain;
-const kovan: NetworkConfig = {
-  ...protoMain,
-  id: "42",
-  name: "kovan",
-  label: "Kovan",
-  infuraUrl: `https://kovan.infura.io/v3/${infuraProjectId}`,
-  infuraUrlWS: `wss://kovan.infura.io/ws/v3/${infuraProjectId}`,
-};
-
 const goerli: NetworkConfig = {
   id: "5",
   name: "goerli",
@@ -121,7 +50,6 @@ const goerli: NetworkConfig = {
   infuraUrlWS: `wss://goerli.infura.io/ws/v3/${infuraProjectId}`,
   tokens: {},
   tokensMainnet: protoMain.tokensMainnet,
-  joins: {},
 
   etherscan: {
     url: "https://goerli.etherscan.io",
@@ -142,8 +70,8 @@ const hardhat: NetworkConfig = {
   infuraUrlWS: `wss://testchain-dev.gsuprotocol.io/wss`,
 };
 
-export const networksById = keyBy([main, kovan, hardhat, goerli], "id");
-export const networksByName = keyBy([main, kovan, hardhat, goerli], "name");
+export const networksById = keyBy([main, hardhat, goerli], "id");
+export const networksByName = keyBy([main, hardhat, goerli], "name");
 
-export const dappName = "GSUcoin";
+export const dappName = "GSR";
 export const pollingInterval = 12000;
