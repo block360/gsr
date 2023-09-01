@@ -217,7 +217,7 @@ export function UserSettingsButtonContents({
           variant="address"
           sx={{
             ml: 3,
-            color: "primary100",
+            color: "white",
             fontSize: 2,
             fontWeight: [600, 500],
           }}
@@ -231,7 +231,7 @@ export function UserSettingsButtonContents({
           width="16"
           height="16"
           name="settings"
-          sx={{ flexShrink: 0, m: "13px" }}
+          sx={{ flexShrink: 0, m: "13px",color:"white" }}
           color={active ? "primary100" : "inherit"}
         />
       </Flex>

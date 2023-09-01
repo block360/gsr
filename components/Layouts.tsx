@@ -56,28 +56,33 @@ export function WithAnnouncementLayout({
   variant,
 }: WithAnnouncementLayoutProps) {
   return (
-    <Flex
-      sx={{
-        bg: "none",
-        flexDirection: "column",
-        minHeight: "100%",
-        ...sx,
-      }}
-    >
-      {header}
-      {showAnnouncement && <Container variant="announcement"></Container>}
-      <Container
-        variant={variant || "appContainer"}
-        //@GSUpro fixes background height
-        sx={{ flex: 2, mb: 5, minHeight: "900px" }}
-        //@GSUpro fixes background height end
-        as="main"
-      >
-        <Flex sx={{ width: "100%", height: "100%" }}>{children}</Flex>
-      </Container>
-      {footer}
-    </Flex>
-  );
+		<Flex
+			sx={{
+				// bg: "none",
+				flexDirection: "column",
+				minHeight: "100%",
+				...sx,
+					backgroundImage: "url('static/img/Background.png')",
+					position: "relative",
+					backgroundRepeat: "no-repeat",
+					backgroundPosition: "top center",
+					backgroundSize: "cover",
+			}}
+		>
+			{header}
+			{showAnnouncement && <Container variant="announcement"></Container>}
+			<Container
+				variant={variant || "appContainer"}
+				//@GSUpro fixes background height
+				sx={{ flex: 2, mb: 5, minHeight: "900px" }}
+				//@GSUpro fixes background height end
+				as="main"
+			>
+				<Flex sx={{ width: "100%", height: "100%" }}>{children}</Flex>
+			</Container>
+			{footer}
+		</Flex>
+	);
 }
 
 export function AppLayout({ children }: WithChildren) {

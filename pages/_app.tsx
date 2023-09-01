@@ -16,7 +16,7 @@ import { readOnlyEnhanceProvider } from "blockchain/readOnlyEnhancedProviderProx
 import { AppLayout, MarketingLayoutProps } from "components/Layouts";
 import { SharedUIProvider } from "components/SharedUIProvider";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { mixpanelInit } from "../analytics/mixpanel";
+// import { mixpanelInit } from "../analytics/mixpanel";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { trackingEvents } from "analytics/analytics";
@@ -46,7 +46,7 @@ interface CustomAppProps {
   };
 }
 
-mixpanelInit();
+// mixpanelInit();
 
 function App({ Component, pageProps }: AppProps & CustomAppProps) {
   const Layout = Component.layout || AppLayout;

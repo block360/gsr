@@ -119,59 +119,60 @@ function ButtonDropdown({
   const componentRef = useOutsideElementClickHandler(() => setIsOpen(false));
 
   return (
-    <Flex ref={componentRef} sx={{ position: "relative", ...sx }}>
-      <Button
-        variant={round ? "menuButtonRound" : "menuButton"}
-        onClick={() => {
-          setIsOpen(!isOpen);
-          onOpen && onOpen();
-        }}
-        sx={{
-          position: "relative",
-          p: 1,
-          "&, :focus": {
-            outline: isOpen ? "1px solid" : null,
-            outlineColor: "primary100",
-          },
-          color: "neutral80",
-          ":hover": { color: "primary100" },
-        }}
-      >
-        {showNewBeacon && (
-          <Icon
-            name="new_beacon"
-            sx={{ position: "absolute", top: "-3px", right: "-3px" }}
-            size="auto"
-            width={22}
-          />
-        )}
-        <ButtonContents active={isOpen} />
-      </Button>
-      <Box
-        sx={{
-          display: isOpen ? "block" : "none",
-          p: 0,
-          position: "absolute",
-          top: "auto",
-          left: "auto",
-          right: 0,
-          bottom: 0,
-          transform: "translateY(calc(100% + 10px))",
-          bg: "neutral10",
-          boxShadow: "elevation",
-          borderRadius: "mediumLarge",
-          border: "none",
-          overflowX: "visible",
-          zIndex: 0,
-          minWidth: 7,
-          minHeight: 7,
-          ...dropdownSx,
-        }}
-      >
-        {children}
-      </Box>
-    </Flex>
-  );
+		<Flex ref={componentRef} sx={{ position: "relative", ...sx }}>
+			<Button
+				variant={round ? "menuButtonRound" : "menuButton"}
+				onClick={() => {
+					setIsOpen(!isOpen);
+					onOpen && onOpen();
+				}}
+				sx={{
+					position: "relative",
+					p: 1,
+					"&, :focus": {
+						outline: isOpen ? "1px solid" : null,
+						outlineColor: "primary100",
+					},
+					color: "neutral80",
+					background: "linear-gradient(90deg, #B35FFF 0%, #E94A74 100%)",
+					":hover": { color: "primary100" },
+				}}
+			>
+				{showNewBeacon && (
+					<Icon
+						name="new_beacon"
+						sx={{ position: "absolute", top: "-3px", right: "-3px" }}
+						size="auto"
+						width={22}
+					/>
+				)}
+				<ButtonContents active={isOpen} />
+			</Button>
+			<Box
+				sx={{
+					display: isOpen ? "block" : "none",
+					p: 0,
+					position: "absolute",
+					top: "auto",
+					left: "auto",
+					right: 0,
+					bottom: 0,
+					transform: "translateY(calc(100% + 10px))",
+					bg: "neutral10",
+					boxShadow: "elevation",
+					borderRadius: "mediumLarge",
+					border: "none",
+					overflowX: "visible",
+					zIndex: 0,
+					minWidth: 7,
+					minHeight: 7,
+					...dropdownSx,
+				}}
+			>
+				{children}
+			</Box>
+		</Flex>
+	);
 }
 
 function UserDesktopMenu() {
@@ -185,35 +186,35 @@ function UserDesktopMenu() {
     web3Context?.status !== "connected";
 
   return (
-    <Flex
-      sx={{
-        p: 0,
-        justifyContent: "space-between",
-        gap: 2,
-        zIndex: 3,
-      }}
-    >
-      <Flex
-        sx={{
-          position: "relative",
-        }}
-      >
-        <Box>
-          {!shouldHideSettings && (
-            <ButtonDropdown
-              ButtonContents={({ active }) => (
-                <UserSettingsButtonContents
-                  {...{ context, web3Context, active }}
-                />
-              )}
-            >
-              <UserSettings sx={{ p: 4, minWidth: "380px" }} />
-            </ButtonDropdown>
-          )}
-        </Box>
-      </Flex>
-    </Flex>
-  );
+		<Flex
+			sx={{
+				p: 0,
+				justifyContent: "space-between",
+				gap: 2,
+				zIndex: 3,
+			}}
+		>
+			<Flex
+				sx={{
+					position: "relative",
+				}}
+			>
+				<Box>
+					{!shouldHideSettings && (
+						<ButtonDropdown
+							ButtonContents={({ active }) => (
+								<UserSettingsButtonContents
+									{...{ context, web3Context, active }}
+								/>
+							)}
+						>
+							<UserSettings sx={{ p: 4, minWidth: "380px" }} />
+						</ButtonDropdown>
+					)}
+				</Box>
+			</Flex>
+		</Flex>
+	);
 }
 
 function MobileSettings() {
@@ -323,7 +324,7 @@ const LINKS = {
   "dai-wallet": `${getConfig().publicRuntimeConfig.apiHost}/daiwallet`,
   learn: "/inprogress",
   blog: "/inprogres",
-  loginPage: `/signedIn`,
+  // loginPage: `/signedIn`,
 };
 
 function ConnectedHeader() {
@@ -352,7 +353,7 @@ function ConnectedHeader() {
             >
               <Logo />
               <Flex sx={{ ml: 5, zIndex: 1 }}>
-                <AppLink
+                {/* <AppLink
                   variant="links.navHeader"
                   href={LINKS.loginPage}
                   sx={{
@@ -361,7 +362,7 @@ function ConnectedHeader() {
                   }}
                 >
                   {t("nav.login")}
-                </AppLink>
+                </AppLink> */}
 
                 {/* <AssetsDropdown /> */}
               </Flex>
@@ -601,65 +602,67 @@ function DisconnectedHeader() {
   const { pathname } = useRouter();
 
   return (
-    <>
-      <Box sx={{ display: ["none", "block"] }}>
-        <BasicHeader variant="appContainer">
-          <Grid
-            sx={{
-              alignItems: "center",
-              columnGap: [4, 4, 5],
-              gridAutoFlow: "column",
-              mr: 3,
-            }}
-          >
-            <Logo />
-          </Grid>
-          <Grid
-            sx={{ alignItems: "center", columnGap: 3, gridAutoFlow: "column" }}
-          >
-            <AppLink
-              variant="buttons.secondary"
-              href="/connect"
-              sx={{
-                boxShadow: "cardLanding",
-                bg: "white",
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                "&:hover svg": {
-                  transform: "translateX(8px)",
-                },
-                flexShrink: 0,
-              }}
-            >
-              <Text variant="strong">{t("connect-wallet-button")}</Text>
-              <Icon
-                name="arrow_right"
-                size="15px"
-                sx={{
-                  color: "black",
-                  position: "relative",
-                  left: "6px",
-                  transition: "0.2s",
-                }}
-              />
-            </AppLink>
-            {/* <LanguageDropdown
+		<>
+			<Box sx={{ display: ["none", "block"] }}>
+				<BasicHeader variant="appContainer">
+					<Grid
+						sx={{
+							alignItems: "center",
+							columnGap: [4, 4, 5],
+							gridAutoFlow: "column",
+							mr: 3,
+						}}
+					>
+						<Logo />
+					</Grid>
+					<Grid
+						sx={{ alignItems: "center", columnGap: 3, gridAutoFlow: "column" }}
+					>
+						<AppLink
+							variant="buttons.secondary"
+							href="/connect"
+							sx={{
+								boxShadow: "cardLanding",
+								// bg: "white",
+                // color:"white",
+								textDecoration: "none",
+								display: "inline-flex",
+								alignItems: "center",
+								"&:hover svg": {
+									transform: "translateX(8px)",
+								},
+								flexShrink: 0,
+								background: "linear-gradient(90deg, #B35FFF 0%, #E94A74 100%)",
+							}}
+						>
+							<Text variant="strong" sx={{color:"white"}}>{t("connect-wallet-button")}</Text>
+							{/* <Icon
+								name="arrow_right"
+								size="15px"
+								sx={{
+									color: "white",
+									position: "relative",
+									left: "6px",
+									transition: "0.2s",
+								}}
+							/> */}
+						</AppLink>
+						{/* <LanguageDropdown
               sx={{
                 "@media (max-width: 1330px)": { ".menu": { right: "-6px" } },
               }}
             /> */}
-          </Grid>
-        </BasicHeader>
-      </Box>
-      <Box sx={{ display: ["block", "none"], mb: 5 }}>
-        <BasicHeader variant="appContainer">
-          <Logo />
-          <MobileMenu />
-        </BasicHeader>
-      </Box>
-    </>
-  );
+					</Grid>
+				</BasicHeader>
+			</Box>
+			<Box sx={{ display: ["block", "none"], mb: 5 }}>
+				<BasicHeader variant="appContainer">
+					<Logo />
+					<MobileMenu />
+				</BasicHeader>
+			</Box>
+		</>
+	);
 }
 
 export function AppHeader() {

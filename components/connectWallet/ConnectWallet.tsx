@@ -416,7 +416,7 @@ export function ConnectWallet() {
           redirectState$.next(undefined);
         } else {
           //reidirec url
-          replace("/signedIn");
+          replace("/");
         }
       }
     });
