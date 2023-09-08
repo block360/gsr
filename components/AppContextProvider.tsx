@@ -12,7 +12,7 @@ export function isAppContextAvailable(): boolean {
 
 export function useAppContext(): AppContext {
   const ac = useContext(appContext);
-  console.log("ac", ac);
+  // console.log("ac", ac);
   if (!ac) {
     throw new Error(
       "AppContext not available! useAppContext can't be used serverside"

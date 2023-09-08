@@ -1,6 +1,3 @@
-import Head from "next/head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import {
 	Box,
 	Button,
@@ -9,15 +6,56 @@ import {
 	Tooltip,
 	Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useAppContext } from "./AppContextProvider";
+import { useObservable } from "helpers/observableHook";
+import axios from "axios";
 
-export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
+export default function RewardCard({
+	type,
+	startDate,
+	endDate,
+	id,
+	ilk,
+	timeSequence,
+	allowance,
+}: {
+	type: "inprogress" | "ended";
+	startDate: string;
+	endDate: string;
+	id: number;
+	ilk: string;
+	timeSequence: number;
+	allowance:number;
+}) {
 	const [readMore, setReadMore] = useState(
 		type === "inprogress" ? true : false
 	);
 	const [transaction, setTransaction] = useState(false);
 	const [reward, setReward] = useState(false);
+
+	const [rewardData, setRewardData] =
+		useState<{ rate: number; minimum: number; maximum: number }>();
+
+	const { web3Context$ } = useAppContext();
+	const [web3Context] = useObservable(web3Context$);
+
+	if (web3Context?.status === "connected") {
+		var { account } = web3Context;
+	}
+
+	useEffect(() => {
+		const getRate = async () => {
+			// const res = await axios.get(
+			// 	`${process.env.API_HOST}/reward/rate?ilk=${"ETH-A"}&campaignId=${id}`
+			// );
+
+			setRewardData({ rate: 1.4, minimum: 1, maximum: 2 });
+		};
+
+		getRate();
+	}, []);
 
 	return (
 		<Box display="flex" gap={2} marginTop="20px">
@@ -64,14 +102,14 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 							justifyContent="space-between"
 							borderRadius="20px"
 						>
-							<Box padding="20px" width={type==="inprogress"?"60%":"50%"}>
+							<Box padding="20px" width={type === "inprogress" ? "60%" : "50%"}>
 								<Box display="flex">
 									<Typography
 										fontWeight="600"
 										fontSize="16px"
 										marginRight="20px"
 									>
-										Mint GSUc from ETH-A
+										Mint GSUc from {ilk}
 									</Typography>
 									<Image
 										src="/static/img/ETH-A.png"
@@ -91,14 +129,14 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 											Start Date
 										</Typography>
 										<Typography fontWeight="400" fontSize="14px">
-											ongoing
+											{startDate}
 										</Typography>
 										<Button
 											variant="contained"
 											onClick={() => {
-												setReadMore((prev) => !prev)
+												setReadMore((prev) => !prev);
 												setTransaction(false);
-												setReward(false)
+												setReward(false);
 											}}
 											sx={{
 												width: "95px",
@@ -127,7 +165,7 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 											End Date
 										</Typography>
 										<Typography fontWeight="400" fontSize="14px">
-											2023.11.01
+											{endDate}
 										</Typography>
 										{type === "inprogress" ? (
 											<Button
@@ -203,7 +241,7 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 												paddingRight="5px"
 												color="white"
 											>
-												1.4
+												{rewardData?.rate}
 											</Typography>
 										</Box>
 										<Box
@@ -220,10 +258,10 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 										justifyContent="space-between"
 									>
 										<Typography fontWeight="400" fontSize="12px">
-											1
+											{rewardData?.maximum}
 										</Typography>
 										<Typography fontWeight="400" fontSize="12px">
-											2
+											{rewardData?.minimum}
 										</Typography>
 									</Box>
 
@@ -339,10 +377,10 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 									Campaign:
 								</Typography>
 								<Typography fontWeight="600" fontSize="16px" marginTop="3px">
-									Mint GSUc from ETH-A
+									Mint GSUc from {ilk}
 								</Typography>
 								<Typography fontWeight="400" fontSize="14px">
-									(2023.08.01 - 2023.11.01)
+									({startDate} - {endDate})
 								</Typography>
 
 								<Box display="flex" marginTop="20px">
@@ -351,7 +389,9 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 									</Typography>
 									<Typography fontWeight="400" fontSize="12px">
 										10% * Boost Factor ={" "}
-										<span style={{ fontWeight: "700" }}>14%</span>
+										<span style={{ fontWeight: "700" }}>
+											{rewardData?.rate * 10}%
+										</span>
 									</Typography>
 								</Box>
 
@@ -369,7 +409,7 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 										Vault:
 									</Typography>
 									<Typography fontWeight="400" fontSize="12px">
-										ETH-A
+										{ilk}
 									</Typography>
 								</Box>
 
@@ -379,7 +419,7 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 									</Typography>
 									<Box display="flex">
 										<Typography fontWeight="400" fontSize="12px">
-											10 days (Nine time-sequneces in the full period)
+											{timeSequence} days (Nine time-sequneces in the full period)
 										</Typography>
 										<Tooltip title="Time sequence is evenly distributed between start and the end date of the campaign. When a user increases their debt position, the current rate of the day is applied, if there is a boost factor it will be applied too, otherwise the base reward is applied for the time sequence.When a user decreases their debt position, they will get slashed from their reward for the previous time sequence as well.">
 											<Image
@@ -398,7 +438,7 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 										Campaign max.:
 									</Typography>
 									<Typography fontWeight="400" fontSize="12px">
-										Up to 20M GSUc minted
+										Up to {allowance} GSUc minted
 									</Typography>
 								</Box>
 
@@ -411,56 +451,58 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 									</Typography>
 								</Box>
 
-								<Box
-									display="flex"
-									justifyContent="space-between"
-									marginTop="10px"
-								>
+								{web3Context?.status === "connected" && (
 									<Box
-										sx={{ cursor: "pointer" }}
-										onClick={() => setTransaction((prev) => !prev)}
 										display="flex"
-										// padding="2px"
+										justifyContent="space-between"
+										marginTop="10px"
 									>
-										<Image
-											src="/static/img/Collapse.png"
-											height="10px"
-											width="21px"
-											layout="fixed"
-											style={{ marginTop: "3px" }}
-										/>
-										<Typography
-											fontWeight="400"
-											fontSize="12px"
-											color="white"
-											marginLeft="10px"
+										<Box
+											sx={{ cursor: "pointer" }}
+											onClick={() => setTransaction((prev) => !prev)}
+											display="flex"
+											// padding="2px"
 										>
-											My Transaction
-										</Typography>
-									</Box>
+											<Image
+												src="/static/img/Collapse.png"
+												height="10px"
+												width="21px"
+												layout="fixed"
+												style={{ marginTop: "3px" }}
+											/>
+											<Typography
+												fontWeight="400"
+												fontSize="12px"
+												color="white"
+												marginLeft="10px"
+											>
+												My Transaction
+											</Typography>
+										</Box>
 
-									<Box
-										sx={{ cursor: "pointer" }}
-										onClick={() => setReward((prev) => !prev)}
-										display="flex"
-									>
-										<Image
-											src="/static/img/Collapse.png"
-											height="10px"
-											width="21px"
-											layout="fixed"
-											style={{ marginTop: "3px" }}
-										/>
-										<Typography
-											fontWeight="400"
-											fontSize="12px"
-											color="white"
-											marginLeft="10px"
+										<Box
+											sx={{ cursor: "pointer" }}
+											onClick={() => setReward((prev) => !prev)}
+											display="flex"
 										>
-											My Rewards
-										</Typography>
+											<Image
+												src="/static/img/Collapse.png"
+												height="10px"
+												width="21px"
+												layout="fixed"
+												style={{ marginTop: "3px" }}
+											/>
+											<Typography
+												fontWeight="400"
+												fontSize="12px"
+												color="white"
+												marginLeft="10px"
+											>
+												My Rewards
+											</Typography>
+										</Box>
 									</Box>
-								</Box>
+								)}
 							</Box>
 						)}
 					</Box>
@@ -645,42 +687,59 @@ export default function RewardCard({ type }: { type: "inprogress" | "ended" }) {
 				flexDirection="column"
 				justifyContent="space-between"
 			>
-				{type === "inprogress" && (
-					<Box width="100%" display="flex" justifyContent="end">
-						<img src="/static/img/refresh.png" width="28px" height="28px" />
+				{web3Context?.status === "connected" ? (
+					<>
+						{type === "inprogress" && (
+							<Box width="100%" display="flex" justifyContent="end">
+								<img src="/static/img/refresh.png" width="28px" height="28px" />
+							</Box>
+						)}
+						<Box>
+							<Typography fontWeight="400" fontSize="12px">
+								My Rewards in process:
+							</Typography>
+							<Typography fontWeight="400" fontSize="12px">
+								GSUp 1234
+							</Typography>
+						</Box>
+						<Box>
+							<Typography fontWeight="400" fontSize="12px">
+								My Rewards confirmed:
+							</Typography>
+							<Typography fontWeight="400" fontSize="12px">
+								GSUp 7110
+							</Typography>
+						</Box>
+
+						{type === "ended" && (
+							<Box>
+								<Typography fontWeight="400" fontSize="12px">
+									My next Reward release:
+								</Typography>
+								<Typography fontWeight="400" fontSize="12px">
+									01/09/23
+								</Typography>
+							</Box>
+						)}
+
+						<Typography fontWeight="400" fontSize="12px">
+							As of: 00:00 Date: 00/00/00
+						</Typography>
+					</>
+				) : (
+					<Box
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
+						height="100%"
+					>
+						<Typography fontWeight="400" fontSize="12px">
+							{type === "inprogress"
+								? "Join this campaign to see your rewards."
+								: "This campaign has ended."}
+						</Typography>
 					</Box>
 				)}
-				<Box>
-					<Typography fontWeight="400" fontSize="12px">
-						My Rewards in process:
-					</Typography>
-					<Typography fontWeight="400" fontSize="12px">
-						GSUp 1234
-					</Typography>
-				</Box>
-				<Box>
-					<Typography fontWeight="400" fontSize="12px">
-						My Rewards confirmed:
-					</Typography>
-					<Typography fontWeight="400" fontSize="12px">
-						GSUp 7110
-					</Typography>
-				</Box>
-
-				{type === "ended" && (
-					<Box>
-						<Typography fontWeight="400" fontSize="12px">
-							My next Reward release:
-						</Typography>
-						<Typography fontWeight="400" fontSize="12px">
-							01/09/23
-						</Typography>
-					</Box>
-				)}
-
-				<Typography fontWeight="400" fontSize="12px">
-					As of: 00:00 Date: 00/00/00
-				</Typography>
 			</Box>
 		</Box>
 	);

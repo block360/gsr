@@ -1,0 +1,799 @@
+	[
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_tokenAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_dssCdpManagerAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_expirationTime",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_quorum",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "closeTimestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "CompaignClosed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "expiryTimestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "ExpirationTimeChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "quorum",
+					"type": "uint256"
+				}
+			],
+			"name": "QuorumChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "recipient",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "ilk",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "RewardClaimed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "SIGNER_ROLE",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "cdpIDTotalRewardWithdrawn",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "cdpID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "compaignID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "signatures",
+					"type": "bytes[]"
+				}
+			],
+			"name": "claim",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "ilk",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "compaignID",
+					"type": "uint256"
+				}
+			],
+			"name": "closeCompaign",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "configs",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "allowance",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "startTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "endTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "declineTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "max",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "min",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "closedAt",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timeSequence",
+					"type": "uint256"
+				},
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "start",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "cliff",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "duration",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "slicePeriod",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "revocable",
+							"type": "bool"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct RewardContract.Schedule",
+					"name": "schedule",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "dssCdpManager",
+			"outputs": [
+				{
+					"internalType": "contract IDssCdpManager",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "expirationTimestamp",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "_ilk",
+					"type": "bytes32"
+				}
+			],
+			"name": "getConfigs",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "allowance",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "startTimestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "endTimestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "declineTimestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "max",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "min",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "closedAt",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "timeSequence",
+							"type": "uint256"
+						},
+						{
+							"components": [
+								{
+									"internalType": "uint256",
+									"name": "start",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "cliff",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "duration",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "slicePeriod",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "revocable",
+									"type": "bool"
+								},
+								{
+									"internalType": "uint256",
+									"name": "amount",
+									"type": "uint256"
+								}
+							],
+							"internalType": "struct RewardContract.Schedule",
+							"name": "schedule",
+							"type": "tuple"
+						}
+					],
+					"internalType": "struct RewardContract.Configuration[]",
+					"name": "",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "_ilk",
+					"type": "bytes32"
+				}
+			],
+			"name": "getConfigsCount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				}
+			],
+			"name": "getRoleAdmin",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "hasRole",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "ilk",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "allowance",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "startTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "endTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "declineTimestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "max",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "min",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timeSequence",
+					"type": "uint256"
+				},
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "start",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "cliff",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "duration",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "slicePeriod",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "revocable",
+							"type": "bool"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct RewardContract.Schedule",
+					"name": "scheduleData",
+					"type": "tuple"
+				}
+			],
+			"name": "init",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "isSignatureUsed",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "quorum",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "expiryTimestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "setExpiryTimestamp",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "quorum_",
+					"type": "uint256"
+				}
+			],
+			"name": "setQuorum",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "signers",
+					"type": "address[]"
+				}
+			],
+			"name": "setSignerRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes4",
+					"name": "interfaceId",
+					"type": "bytes4"
+				}
+			],
+			"name": "supportsInterface",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "tokenVesting",
+			"outputs": [
+				{
+					"internalType": "contract ITokenVesting",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
