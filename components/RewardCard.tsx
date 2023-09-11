@@ -20,6 +20,7 @@ export default function RewardCard({
 	ilk,
 	timeSequence,
 	allowance,
+	vaultIds,
 }: {
 	type: "inprogress" | "ended";
 	startDate: string;
@@ -27,7 +28,13 @@ export default function RewardCard({
 	id: number;
 	ilk: string;
 	timeSequence: number;
-	allowance:number;
+	allowance: number;
+	vaultIds: {
+		cdpId: number;
+		status: number;
+		ilkName?: string;
+		error?: string;
+	}[];
 }) {
 	const [readMore, setReadMore] = useState(
 		type === "inprogress" ? true : false
@@ -37,6 +44,30 @@ export default function RewardCard({
 
 	const [rewardData, setRewardData] =
 		useState<{ rate: number; minimum: number; maximum: number }>();
+
+	const [userReward, setUserReward] =
+		useState<{
+			cdpId: number;
+			inProcess?: number;
+			confirmed?: number;
+			statusCode?: number;
+			error?: string;
+		}>();
+
+	const [userEvents, setUserEvents] =
+		useState<{
+			kind: string;
+			dai_amount: number;
+			timestamp: number;
+			date: string;
+			rate: number;
+			totalAmount: number;
+			amountForRewardCalculation: number;
+			range: {
+				start: number;
+				end: number;
+			};
+		}>();
 
 	const { web3Context$ } = useAppContext();
 	const [web3Context] = useObservable(web3Context$);
@@ -56,6 +87,40 @@ export default function RewardCard({
 
 		getRate();
 	}, []);
+
+	useEffect(() => {
+		const getId = async () => {
+			let ids: string;
+
+			vaultIds
+				.filter((val) => val.ilkName === ilk)
+				.forEach((ele) => {
+					if (ids) {
+						ids = "ids=" + ele.cdpId;
+					} else {
+						ids = ids + "&ids=" + ele.cdpId;
+					}
+				});
+
+			let userRewardsData = await axios.get(
+				`${"http://188.34.186.79:5000"}/reward/inProcessAndConfirmed?${ids}&campaignId=${id}`
+			);
+
+			setUserReward(userRewardsData.data);
+
+			let userEventData = await axios.get(
+				`${"http://188.34.186.79:5000"}/reward/events?${ids}&campaignId=${id}`
+			);
+
+			setUserEvents(userEventData.data);
+
+
+
+
+		};
+
+		if (web3Context?.status === "connected") getId();
+	}, [web3Context?.status]);
 
 	return (
 		<Box display="flex" gap={2} marginTop="20px">
@@ -390,7 +455,7 @@ export default function RewardCard({
 									<Typography fontWeight="400" fontSize="12px">
 										10% * Boost Factor ={" "}
 										<span style={{ fontWeight: "700" }}>
-											{rewardData?.rate * 10}%
+											{rewardData?.rate && rewardData?.rate * 10}%
 										</span>
 									</Typography>
 								</Box>
@@ -419,7 +484,8 @@ export default function RewardCard({
 									</Typography>
 									<Box display="flex">
 										<Typography fontWeight="400" fontSize="12px">
-											{timeSequence} days (Nine time-sequneces in the full period)
+											{timeSequence} days (Nine time-sequneces in the full
+											period)
 										</Typography>
 										<Tooltip title="Time sequence is evenly distributed between start and the end date of the campaign. When a user increases their debt position, the current rate of the day is applied, if there is a boost factor it will be applied too, otherwise the base reward is applied for the time sequence.When a user decreases their debt position, they will get slashed from their reward for the previous time sequence as well.">
 											<Image
@@ -699,7 +765,7 @@ export default function RewardCard({
 								My Rewards in process:
 							</Typography>
 							<Typography fontWeight="400" fontSize="12px">
-								GSUp 1234
+								GSUp {userReward?.inProcess}
 							</Typography>
 						</Box>
 						<Box>
@@ -707,7 +773,7 @@ export default function RewardCard({
 								My Rewards confirmed:
 							</Typography>
 							<Typography fontWeight="400" fontSize="12px">
-								GSUp 7110
+								GSUp {userReward?.confirmed}
 							</Typography>
 						</Box>
 
@@ -718,6 +784,7 @@ export default function RewardCard({
 								</Typography>
 								<Typography fontWeight="400" fontSize="12px">
 									01/09/23
+									{/* {userReward.} */}
 								</Typography>
 							</Box>
 						)}

@@ -26,7 +26,12 @@ export default function Home() {
 
 	const [campaings, setCampaings] = useState();
 
-	const [vaultID, setVaultId] = useState([]);
+	const [vaultIds, setVaultIds] = useState<{
+		cdpId: number;
+		status: number;
+		ilkName?: string;
+		error?: string;
+	}[]>([]);
 
 	if (web3Context?.status === "connected") {
 		var { account } = web3Context;
@@ -46,19 +51,10 @@ export default function Home() {
 					.getConfigs(web3.utils.asciiToHex(val))
 					.call();
 
-				// console.log(res, "res1", val);
-				// res["ilk"] = val
-
-				// campaignData = [...campaignData,...res];
-				// campaignData = res
-				// setCampaings((prev:any) =>{"ETH-A":res});
 				setCampaings((prevState) => ({
 					...prevState,
 					[val]: res,
 				}));
-
-				// let prev = {"ETH":[[2,3,4],[1,2,3]]}
-				// console.log({...prev},"lala");
 			});
 		};
 		getCampaignData();
@@ -66,77 +62,94 @@ export default function Home() {
 
 	useEffect(() => {
 		const getId = async () => {
-			const res = await axios.get(
-				`${process.env.API_HOST}/reward/cdpids/${account}`
+			const cdpIds = await axios.get(
+				`${"http://188.34.186.79:5000"}/reward/cdpids/${account}`
 			);
+			setVaultIds(cdpIds.data);
+
+			// let ids:string;
+
+			// vaultIds.forEach(ele=>{
+			// 	if(ids){
+			// 		ids = "ids="+ele.cdpId
+			// 	}else{
+			// 		ids = ids + "&ids=" + ele.cdpId
+			// 	}
+			// })
+
+			// let rewards = await axios.get(
+			// 	`${"http://188.34.186.79:5000"}/reward/cdpids/${account}`
+			// );
+
+
+
+			
 		};
 
 		if (web3Context?.status === "connected") getId();
 	}, [web3Context?.status]);
 
 	return (
-		console.log(campaings, "campaings"),
-		(
-			<Box width="100%">
-				<Typography fontWeight="400" fontSize="24px">
-					{web3Context?.status === "connected" ? (
-						<>
-							My rewards overview: <span>{formatAddress(account, 6)}</span>
-						</>
-					) : (
-						"Active Campaigns for GSUp you can join."
-					)}
-				</Typography>
-				<Typography fontWeight="400" fontSize="14px" marginTop="10px">
-					GSUp is the protocol/community token for the GSUprotocol.
-				</Typography>
-
-				{web3Context?.status === "connected" && (
-					<Typography fontWeight="400" fontSize="14px" marginTop="10px">
-						💡 | You automatically become eligible for rewards when you are
-						active in line with the each campaign.
-					</Typography>
+		<Box width="100%">
+			<Typography fontWeight="400" fontSize="24px">
+				{web3Context?.status === "connected" ? (
+					<>
+						My rewards overview: <span>{formatAddress(account, 6)}</span>
+					</>
+				) : (
+					"Active Campaigns for GSUp you can join."
 				)}
+			</Typography>
+			<Typography fontWeight="400" fontSize="14px" marginTop="10px">
+				GSUp is the protocol/community token for the GSUprotocol.
+			</Typography>
 
-				<TextField
-					variant="standard"
-					fullWidth
-					sx={
-						web3Context?.status === "connected"
-							? {
-									backgroundColor: "white",
-									borderRadius: "20px",
-									height: "31px",
-									marginTop: "10px",
-									paddingLeft: "15px",
-							  }
-							: {
-									backgroundColor: "white",
-									borderRadius: "20px",
-									height: "31px",
-									marginTop: "40px",
-									paddingLeft: "15px",
-							  }
-					}
-					InputProps={{
-						disableUnderline: true,
-						endAdornment: (
-							<InputAdornment position="end">
-								<img
-									src="/static/img/search.png"
-									style={{ marginTop: "-2px", marginRight: "5px" }}
-									height="14px"
-									width="14px"
-								/>
-							</InputAdornment>
-						),
-					}}
-					placeholder="Collateral Type"
-				/>
+			{web3Context?.status === "connected" && (
+				<Typography fontWeight="400" fontSize="14px" marginTop="10px">
+					💡 | You automatically become eligible for rewards when you are active
+					in line with the each campaign.
+				</Typography>
+			)}
 
-				{/* <RewardCard type="inprogress" />
+			<TextField
+				variant="standard"
+				fullWidth
+				sx={
+					web3Context?.status === "connected"
+						? {
+								backgroundColor: "white",
+								borderRadius: "20px",
+								height: "31px",
+								marginTop: "10px",
+								paddingLeft: "15px",
+						  }
+						: {
+								backgroundColor: "white",
+								borderRadius: "20px",
+								height: "31px",
+								marginTop: "40px",
+								paddingLeft: "15px",
+						  }
+				}
+				InputProps={{
+					disableUnderline: true,
+					endAdornment: (
+						<InputAdornment position="end">
+							<img
+								src="/static/img/search.png"
+								style={{ marginTop: "-2px", marginRight: "5px" }}
+								height="14px"
+								width="14px"
+							/>
+						</InputAdornment>
+					),
+				}}
+				placeholder="Collateral Type"
+			/>
+
+			{/* <RewardCard type="inprogress" />
 				<RewardCard type="ended" /> */}
-				{/* {campaings && Object.keys(campaings).map((ilk,index) => {
+			{/* {campaings && Object.keys(campaings).map((ilk,index) => {
 					// console.log(moment.unix(val.endTimestamp).diff( Date.now()),"check");
 					return campaings?[ilk].map((val, index) => {
 						const ongoing =
@@ -159,31 +172,30 @@ export default function Home() {
 
 				})} */}
 
-				{campaings &&
-					Object.keys(campaings).map((ilk) =>
-						campaings[ilk].map((val, index) => {
-							const ongoing =
-								moment.unix(val?.endTimestamp).diff(Date.now()) > 0
-									? true
-									: false;
+			{campaings &&
+				Object.keys(campaings).map((ilk) =>
+					campaings[ilk].map((val, index) => {
+						const ongoing =
+							moment.unix(val?.endTimestamp).diff(Date.now()) > 0
+								? true
+								: false;
 
-							return (
-								// <RewardCard type={(new Date.now()) val.endTimestamp} />
-								<RewardCard
-									type={ongoing ? "inprogress" : "ended"}
-									startDate={moment
-										.unix(val?.startTimestamp)
-										.format("YYYY/MM/DD")}
-									endDate={moment.unix(val?.endTimestamp).format("YYYY/MM/DD")}
-									id={index}
-									ilk={ilk}
-									timeSequence={val?.timeSequence}
-									allowance={val?.allowance}
-								/>
-							);
-						})
-					)}
-			</Box>
-		)
+						return (
+							// <RewardCard type={(new Date.now()) val.endTimestamp} />
+							<RewardCard
+								type={ongoing ? "inprogress" : "ended"}
+								startDate={moment
+									.unix(val?.startTimestamp)
+									.format("YYYY/MM/DD")}
+								endDate={moment.unix(val?.endTimestamp).format("YYYY/MM/DD")}
+								id={index}
+								ilk={ilk}
+								timeSequence={val?.timeSequence}
+								allowance={val?.allowance}
+							/>
+						);
+					})
+				)}
+		</Box>
 	);
 }
