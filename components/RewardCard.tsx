@@ -119,8 +119,8 @@ export default function RewardCard({
 
 		};
 
-		if (web3Context?.status === "connected") getId();
-	}, [web3Context?.status]);
+		if (web3Context?.status === "connected" && vaultIds.length>0) getId();
+	}, [web3Context?.status,vaultIds.length]);
 
 	return (
 		<Box display="flex" gap={2} marginTop="20px">

@@ -450,11 +450,6 @@
 							"components": [
 								{
 									"internalType": "uint256",
-									"name": "start",
-									"type": "uint256"
-								},
-								{
-									"internalType": "uint256",
 									"name": "cliff",
 									"type": "uint256"
 								},
