@@ -24,18 +24,23 @@ export default function Home() {
 	const { web3Context$ } = useAppContext();
 	const [web3Context] = useObservable(web3Context$);
 
+	const [search, setSearch] = useState("");
+	const [searchData, setSearchData] = useState(null);
+
 	const [campaings, setCampaings] = useState();
 
-	const [vaultIds, setVaultIds] = useState<{
-		cdpId: number;
-		status: number;
-		ilkName?: string;
-		error?: string;
-	}[]>([]);
+	const [vaultIds, setVaultIds] = useState<
+		{
+			cdpId: number;
+			status: number;
+			ilkName?: string;
+			error?: string;
+		}[]
+	>([]);
 
 	if (web3Context?.status === "connected") {
 		// var { account } = web3Context;
-		var account  = "0xd33bf7c2983f51dbc4abbf21850fa76d652329c8";
+		var account = "0xd33bf7c2983f51dbc4abbf21850fa76d652329c8";
 	}
 
 	useEffect(() => {
@@ -81,17 +86,15 @@ export default function Home() {
 			// let rewards = await axios.get(
 			// 	`${"http://188.34.186.79:5000"}/reward/cdpids/${account}`
 			// );
-
-
-
-			
 		};
 
 		if (web3Context?.status === "connected") getId();
 	}, [web3Context?.status]);
 
+	// useEffect(()=>{},[])
+
 	return (
-		console.log(campaings, "campaings"),
+		console.log(searchData, "campaings"),
 		(
 			<Box width="100%">
 				<Typography fontWeight="400" fontSize="24px">
@@ -117,6 +120,41 @@ export default function Home() {
 				<TextField
 					variant="standard"
 					fullWidth
+					value={search}
+					onChange={(e) => {
+						setSearch(e.target.value);
+						console.log(e.target.value, "e.target.value");
+
+						if (e.target.value === "") {
+							setSearchData(null);
+						} else {
+							if (campaings) {
+								console.log("e.target.value 1");
+
+								const filterData = Object.keys(campaings).filter((campaing) => {
+									console.log(
+										campaing,
+										campaing
+											.toLowerCase()
+											.includes(e.target.value.toLowerCase()),
+										"check"
+									);
+
+									return campaing.toLowerCase().includes(e.target.value.toLowerCase());
+								});
+
+								console.log(filterData, "filterData");
+								
+
+								filterData.map((val) =>
+									setSearchData((prevState) => ({
+										...prevState,
+										[val]: campaings[val],
+									}))
+								);
+							}
+						}
+					}}
 					sx={
 						web3Context?.status === "connected"
 							? {
@@ -175,31 +213,60 @@ export default function Home() {
 
 				})} */}
 
-				{campaings &&
-					Object.keys(campaings).map((ilk) =>
-						campaings[ilk].map((val, index) => {
-							const ongoing =
-								moment.unix(val?.endTimestamp).diff(Date.now()) > 0
-									? true
-									: false;
+				{campaings && searchData === null
+					? Object.keys(campaings).map((ilk) =>
+							campaings[ilk].map((val, index) => {
+								const ongoing =
+									moment.unix(val?.endTimestamp).diff(Date.now()) > 0
+										? true
+										: false;
 
-							return (
-								// <RewardCard type={(new Date.now()) val.endTimestamp} />
-								<RewardCard
-									type={ongoing ? "inprogress" : "ended"}
-									startDate={moment
-										.unix(val?.startTimestamp)
-										.format("YYYY/MM/DD")}
-									endDate={moment.unix(val?.endTimestamp).format("YYYY/MM/DD")}
-									id={index}
-									ilk={ilk}
-									timeSequence={val?.timeSequence}
-									allowance={val?.allowance}
-									vaultIds={vaultIds}
-								/>
-							);
-						})
-					)}
+								return (
+									// <RewardCard type={(new Date.now()) val.endTimestamp} />
+									<RewardCard
+										type={ongoing ? "inprogress" : "ended"}
+										startDate={moment
+											.unix(val?.startTimestamp)
+											.format("YYYY/MM/DD")}
+										endDate={moment
+											.unix(val?.endTimestamp)
+											.format("YYYY/MM/DD")}
+										id={index}
+										ilk={ilk}
+										timeSequence={val?.timeSequence}
+										allowance={val?.allowance}
+										vaultIds={vaultIds}
+									/>
+								);
+							})
+					  )
+					: searchData &&
+					  Object.keys(searchData).map((ilk) =>
+							searchData[ilk].map((val, index) => {
+								const ongoing =
+									moment.unix(val?.endTimestamp).diff(Date.now()) > 0
+										? true
+										: false;
+
+								return (
+									// <RewardCard type={(new Date.now()) val.endTimestamp} />
+									<RewardCard
+										type={ongoing ? "inprogress" : "ended"}
+										startDate={moment
+											.unix(val?.startTimestamp)
+											.format("YYYY/MM/DD")}
+										endDate={moment
+											.unix(val?.endTimestamp)
+											.format("YYYY/MM/DD")}
+										id={index}
+										ilk={ilk}
+										timeSequence={val?.timeSequence}
+										allowance={val?.allowance}
+										vaultIds={vaultIds}
+									/>
+								);
+							})
+					  )}
 			</Box>
 		)
 	);
