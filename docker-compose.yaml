@@ -1,0 +1,10 @@
+version: "3"
+services:
+  gsup-incentive-frontend:
+    container_name: gsup-incentive-frontend
+    build: .
+    ports:
+      - 5000:3000
+    env_file:
+      - .env
+    restart: unless-stopped

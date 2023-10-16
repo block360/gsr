@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useAppContext } from "./AppContextProvider";
 import { useObservable } from "helpers/observableHook";
 import axios from "axios";
+import moment from "moment";
 
 export default function RewardCard({
 	type,
@@ -54,20 +55,7 @@ export default function RewardCard({
 			error?: string;
 		}>();
 
-	const [userEvents, setUserEvents] =
-		useState<{
-			kind: string;
-			dai_amount: number;
-			timestamp: number;
-			date: string;
-			rate: number;
-			totalAmount: number;
-			amountForRewardCalculation: number;
-			range: {
-				start: number;
-				end: number;
-			};
-		}>();
+	const [userEvents, setUserEvents] = useState<any>();
 
 	const { web3Context$ } = useAppContext();
 	const [web3Context] = useObservable(web3Context$);
@@ -113,14 +101,10 @@ export default function RewardCard({
 			);
 
 			setUserEvents(userEventData.data);
-
-
-
-
 		};
 
-		if (web3Context?.status === "connected" && vaultIds.length>0) getId();
-	}, [web3Context?.status,vaultIds.length]);
+		if (web3Context?.status === "connected" && vaultIds.length > 0) getId();
+	}, [web3Context?.status, vaultIds.length]);
 
 	return (
 		<Box display="flex" gap={2} marginTop="20px">
@@ -620,53 +604,88 @@ export default function RewardCard({
 								/>
 							</Box>
 
-							<Typography fontWeight="700" fontSize="12px" marginTop="10px">
-								(Vault ID)
-							</Typography>
+							{userEvents &&
+								userEvents.map((val: any) => (
+									<>
+										<Typography
+											fontWeight="700"
+											fontSize="12px"
+											marginTop="10px"
+										>
+											{/* (Vault ID) */}
+											{val.events.cdpId}
+										</Typography>
 
-							<Box display="flex" width="100%">
-								<Typography fontWeight="700" fontSize="12px" width="24%">
-									Date (dd/mm)
-								</Typography>
+										<Box display="flex" width="100%">
+											<Typography fontWeight="700" fontSize="12px" width="24%">
+												Date (dd/mm)
+											</Typography>
 
-								<Typography fontWeight="700" fontSize="12px" width="19%">
-									Action
-								</Typography>
+											<Typography fontWeight="700" fontSize="12px" width="19%">
+												Action
+											</Typography>
 
-								<Typography fontWeight="700" fontSize="12px" width="19%">
-									Boast Factor
-								</Typography>
+											<Typography fontWeight="700" fontSize="12px" width="19%">
+												Boast Factor
+											</Typography>
 
-								<Typography fontWeight="700" fontSize="12px" width="19%">
-									Amount
-								</Typography>
+											<Typography fontWeight="700" fontSize="12px" width="19%">
+												Amount
+											</Typography>
 
-								<Typography fontWeight="700" fontSize="12px" width="19%">
-									Balance
-								</Typography>
-							</Box>
+											<Typography fontWeight="700" fontSize="12px" width="19%">
+												Balance
+											</Typography>
+										</Box>
 
-							<Box display="flex" width="100%">
-								<Typography fontWeight="400" fontSize="12px" width="24%">
-									1/8
-								</Typography>
+										{val.events.map((data: any) => (
+											<Box display="flex" width="100%">
+												<Typography
+													fontWeight="400"
+													fontSize="12px"
+													width="24%"
+												>
+													{/* 1/8 */}
+													{moment(data.date).format("dd mm")}
+												</Typography>
 
-								<Typography fontWeight="400" fontSize="12px" width="19%">
-									Minted
-								</Typography>
+												<Typography
+													fontWeight="400"
+													fontSize="12px"
+													width="19%"
+												>
+													Minted
+												</Typography>
 
-								<Typography fontWeight="400" fontSize="12px" width="19%">
-									2.0x
-								</Typography>
+												<Typography
+													fontWeight="400"
+													fontSize="12px"
+													width="19%"
+												>
+													{/* 2.0x */}
+													{data.rate}
+												</Typography>
 
-								<Typography fontWeight="400" fontSize="12px" width="19%">
-									10000
-								</Typography>
+												<Typography
+													fontWeight="400"
+													fontSize="12px"
+													width="19%"
+												>
+													{/* 10000 */}
+													{data.dai_amount}
+												</Typography>
 
-								<Typography fontWeight="400" fontSize="12px" width="19%">
-									10000
-								</Typography>
-							</Box>
+												<Typography
+													fontWeight="400"
+													fontSize="12px"
+													width="19%"
+												>
+													{data.totalAmount}
+												</Typography>
+											</Box>
+										))}
+									</>
+								))}
 						</Box>
 					)}
 				</Box>

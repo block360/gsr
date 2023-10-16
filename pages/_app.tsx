@@ -86,6 +86,7 @@ function App({ Component, pageProps }: AppProps & CustomAppProps) {
   );
 }
 export default appWithTranslation(
-  App as React.ComponentType<AppProps> | React.ElementType<AppProps>,
-  nextI18NextConfig as any
+	// App as React.ComponentType<AppProps> | React.ElementType<AppProps>,
+	App as any,
+	nextI18NextConfig as any
 );

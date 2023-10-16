@@ -6,15 +6,15 @@ const nextConfig = {
   publicRuntimeConfig,
   i18n,
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   typescript: {
     ignoreBuildErrors: true,
   },
 };
 
 module.exports = withSentryConfig(nextConfig, {
-  org: "gsu-protocol",
-  project: "gsr",
+  org: "block360-ea",
+  project: "javascript-nextjs-gsr",
   url: "https://sentry.io/",
   silent: true,
 });
